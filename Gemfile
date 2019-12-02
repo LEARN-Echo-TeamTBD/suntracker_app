@@ -47,3 +47,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rspec-rails', groups: [:development, :test]
 
 gem "react-rails", "~> 2.6"
+
+gem "devise", "~> 4.7"
