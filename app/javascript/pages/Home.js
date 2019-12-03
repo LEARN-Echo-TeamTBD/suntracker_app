@@ -1,16 +1,21 @@
 import React from "react"
 
+// import LinkButton from "../reactcomponents/LinkButton"
+
+
 class Home extends React.Component {
 
   render () {
     return (
         <React.Fragment>
-            <div>
-                <h1>Home</h1>
+            <div className="homePage">
+                <h1>Welome to Suntracker</h1>
+
             </div>
         </React.Fragment>
     );
   }
 }
-
+// <LinkButton href="/" title="Sign In"/>
+// <LinkButton href="/" title="Read More"/>
 export default Home

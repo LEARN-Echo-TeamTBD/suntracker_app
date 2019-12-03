@@ -14,7 +14,7 @@ import Resources from '../pages/Resources'
 import Aboutus from '../pages/Aboutus'
 
 //React Components
-import Header from '../reactcomponent/Header'
+import Header from '../reactcomponents/Header'
 
 
 
