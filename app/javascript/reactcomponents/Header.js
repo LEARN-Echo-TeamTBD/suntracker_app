@@ -35,7 +35,6 @@ class Header extends React.Component {
                 <NavLink className="nav-link" tag={Link} to="/signup">Sign Up</NavLink>
               </li>
               <li className="nav-item">
-                      <NavItem>
                       {
                         logged_in &&
                           <a className="nav-link" id="logged_in" href={sign_out_route}>Sign Out</a>
@@ -43,7 +42,7 @@ class Header extends React.Component {
                       {!logged_in &&
                           <a className="nav-link" id="logged_in" href={sign_in_route}>Sign In</a>
                       }
-                    </NavItem>
+
               </li>
             </ul>
             </div>

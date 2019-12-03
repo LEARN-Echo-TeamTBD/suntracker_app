@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter as  Router, Route, Link, Switch } from 'react-router-dom'
 import { Nav, NavItem, NavLink } from 'reactstrap';
-import "bootswatch/dist/united/bootstrap.min.css";
+// import "bootswatch/dist/united/bootstrap.min.css";
 
 
 
