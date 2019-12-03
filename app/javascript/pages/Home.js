@@ -9,8 +9,7 @@ class Home extends React.Component {
     return (
         <React.Fragment>
             <div className="homePage">
-                <h1>Welome to Suntracker</h1>
-
+                <h1>Welcome to Suntracker</h1>
             </div>
         </React.Fragment>
     );

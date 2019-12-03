@@ -8,5 +8,5 @@ Enzyme.configure({ adapter: new Adapter() });
 
 it('Renders a welcome title', ()=>{
     const app = mount(<App />)
-    expect(app.find('h1').text()).toEqual(' Suntracker App ')
+    expect(app.find('h1').text()).toEqual('Welcome to Suntracker')
 })
