@@ -46,28 +46,35 @@ class Header extends React.Component {
 
             <div className={this.state.navbarDivClassName ? "navbar-collapse collapse" : "navbar-collapse collapse show"} id="navbarColor01">
             <ul className="navbar-nav mr-auto">
+            {!logged_in ? null:
               <li className="nav-item active" onClick={this.handleClick}>
                 <NavLink className="nav-link" tag={Link} to="/userform">Your Logger <span className="sr-only" >(current)</span></NavLink>
-              </li>
+              </li>}
+
+              {!logged_in ? null:
               <li className="nav-item" onClick={this.handleClick}>
-                <Link className="nav-link" tag={Link} to="/dashboard" >Dashboard</Link>
-              </li>
+                <NavLink className="nav-link" tag={Link} to="/dashboard" >Dashboard</NavLink>
+              </li>}
+
               <li className="nav-item" onClick={this.handleClick}>
                 <NavLink className="nav-link" tag={Link} to="/resources">Resources</NavLink>
               </li>
               <li className="nav-item" onClick={this.handleClick}>
                 <NavLink className="nav-link" tag={Link} to="/aboutus">About Us</NavLink>
               </li>
-              <li className="nav-item" onClick={this.handleClick}>
-                <NavLink className="nav-link" tag={Link} to="/signup">Sign Up</NavLink>
-              </li>
+
+              {logged_in ? null:
+              <li className="nav-item active" onClick={this.handleClick}>
+                <NavLink className="nav-link" tag={Link} to="/signup"> Sign Up <span className="sr-only" >(current)</span></NavLink>
+                </li>}
+
               <li className="nav-item">
                       {
                         logged_in &&
                           <a className="nav-link" id="logged_in" href={sign_out_route}>Sign Out</a>
                       }
                       {!logged_in &&
-                          <a className="nav-link" id="logged_in" href={sign_in_route}>Sign In</a>
+                          <a className="nav-link active" id="logged_in" href={sign_in_route}>Sign In<span className="sr-only" >(current)</span></a>
                       }
 
               </li>
