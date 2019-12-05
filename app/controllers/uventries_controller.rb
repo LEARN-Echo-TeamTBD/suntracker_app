@@ -1,0 +1,2 @@
+class UventriesController < ApplicationController
+end
