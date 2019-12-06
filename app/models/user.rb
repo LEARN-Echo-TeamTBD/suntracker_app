@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
     validates :name, :age, :skintone, presence: true
     validates :skin_cancer_history, inclusion: { in: [true, false] }
+
+    has_many :uventry
 end
