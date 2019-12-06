@@ -19,14 +19,7 @@ import Header from '../reactcomponents/Header'
 
 
 class App extends React.Component {
-
   render () {
-      const{
-          logged_in,
-          sign_in_route,
-          sign_out_route,
-      } = this.props
-
     return (
         <React.Fragment>
             <Router>

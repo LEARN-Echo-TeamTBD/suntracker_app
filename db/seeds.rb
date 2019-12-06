@@ -8,11 +8,19 @@
 user_attributes = [
   {
     email: 'learn@gmail.com',
-    password:'learn123'
+    password:'learn123',
+    name: "Ben Kevin",
+    age: 22,
+    skintone: 3,
+    skin_cancer_history: false
   },
   {
     email: 'jimmy12@gmail.com',
-    password: 'jimmy123'
+    password: 'jimmy123',
+    name: "Jimmy",
+    age: 24,
+    skintone: 1,
+    skin_cancer_history: true
   }
 ]
 

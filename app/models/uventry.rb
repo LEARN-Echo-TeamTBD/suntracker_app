@@ -1,0 +1,2 @@
+class Uventry < ApplicationRecord
+end
