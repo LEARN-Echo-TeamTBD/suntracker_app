@@ -4,6 +4,6 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    validates :email, :password, :name, :age, :skintone, presence: true
+    validates :name, :age, :skintone, presence: true
     validates :skin_cancer_history, inclusion: { in: [true, false] }
 end

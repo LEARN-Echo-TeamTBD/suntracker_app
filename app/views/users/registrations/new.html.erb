@@ -4,7 +4,34 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.name_field :email, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age, in: 13..110, step: 1, autofocus: true, autocomplete: "age" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :skintone %><br />
+    <%= f.select (:skintone) do %>
+        <% [
+            ['🏻 Light Skin Tone - always burns, never tans', 1],
+            ['🏻 Light-Medium Skin Tone - usually burns, tans minimally', 2],
+            ['🏼 Medium-Light Skin Tone - sometimes mild burn, tans uniformly', 3],
+            ['🏽 Medium Skin Tone - burns minimally, always tans well (moderate brown)', 4],
+            ['🏾 Medium-Dark Skin Tone - burns minimally, always tans well (moderate brown)', 5],
+            ['🏿 Dark Skin Tone - never burns (deeply pigmented dark brown to darkest brown)', 6]
+            ].each do |c| %>
+            <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :skin_cancer_history %><br />
+    <%= f.check_box :skin_cancer_history, checked_value: true, unchecked_value: false, autofocus: true %>
+    <%= label_tag(false, "Family as history of skin cancer") %>
   </div>
 
   <div class="field">
