@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  @minimum_password_length = 10
-  devise :database_authenticatable, :registerable,
+    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+    validates :email, :password, :name, :age, :skintone, presence: true
+    validates :skin_cancer_history, inclusion: { in: [true, false] }
 end
