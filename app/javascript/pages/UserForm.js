@@ -6,7 +6,7 @@ class UserForm extends React.Component {
     return (
         <React.Fragment>
             <div>
-                <h1>Traq yo page</h1>
+                < h1>Traq yo page</h1>
             </div>
         </React.Fragment>
     );

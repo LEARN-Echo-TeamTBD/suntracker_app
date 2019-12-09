@@ -30,12 +30,21 @@ RSpec.describe "Uventries", type: :request do
     describe "GET /users/:user_id/uventries" do
         before { get "/users/#{user_id}/uventries"  }
 
+        context 'Checks if user is signed in' do
+            it "Signs in and out" do
+                sign_in user
+                puts response
+                byebug
+                expect(response).to have_http_status(404)
+            end
+        end
+
         context 'when a uventry exists' do
             it "should not be empty" do
                 expect(JSON.parse(response.body)).not_to be_empty
             end
-            it "should json response be length of 2" do
-                expect(JSON.parse(response.body)).not_to be_empty
+            it "json response should be at most 8" do
+                expect(JSON.parse(response.body).length).to be <= 8
             end
         end
         context 'when a user does not exist' do
@@ -44,5 +53,6 @@ RSpec.describe "Uventries", type: :request do
                 expect(response).to have_http_status(404)
             end
         end
+
     end
 end
