@@ -31,7 +31,6 @@ class Header extends React.Component {
          sign_up_route
            } = this.props
 
-        console.log(sign_in_route);
     return (
         <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
