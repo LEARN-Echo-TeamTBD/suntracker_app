@@ -17,8 +17,8 @@ class UserForm extends React.Component {
       }
   }
 
-  handleClick = (event) => {
-      this.setState({sun_block_application: event.target.value})
+  handleClick = (isTrue) => {
+      this.setState({sun_block_application: isTrue})
       // need to fix the button to flip color
   }
 
@@ -57,8 +57,8 @@ class UserForm extends React.Component {
         <div className="form-border-center">
             <h4>Did you apply sun protection today?</h4>
             <button name='sun_block_application' value={true} type="button"
-            className={this.state.sun_block_application == true ? "btn btn-info" : "btn btn-outline-info"} onClick={this.handleClick}>Yes</button>
-            <button value={false} type="button" className={this.state.sun_block_application == false ? "btn btn-warning" : "btn btn-outline-warning" }  onClick={this.handleClick}>No</button>
+            className={this.state.sun_block_application == true ? "btn btn-info" : "btn btn-outline-info"} onClick={() => this.handleClick(true)}>Yes</button>
+            <button value={false} type="button" className={this.state.sun_block_application == false ? "btn btn-warning" : "btn btn-outline-warning" }  onClick={() => this.handleClick(false)}>No</button>
 
             <fieldset className="form-group">
               <legend>Hours of sun exposure</legend>
