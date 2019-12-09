@@ -31,21 +31,21 @@ class UserForm extends React.Component {
       // submit to the handleNewEntry from parent and clear the input form;
       // need to implement handleNewEntry in parent
 
-      // const { form } = this.state
-      // this.props.handleNewEntry(form)
-      // .then( () => {
-      //     this.setState({
-      //         createSuccess:false,
-      //         sun_block_application: false,
-      //         form: {
-      //             hours_in_sun: 0,
-      //             lattitude: 0,
-      //             longitude: 0,
-      //             time_of_day: '',
-      //             additional_information: ''
-      //         }
-      //     })
-      // })
+      const { form } = this.state
+      this.props.handleNewEntry(form)
+      .then( () => {
+          this.setState({
+              createSuccess:false,
+              sun_block_application: false,
+              form: {
+                  hours_in_sun: 0,
+                  lattitude: 0,
+                  longitude: 0,
+                  time_of_day: '',
+                  additional_information: ''
+              }
+          })
+      })
   }
 
   render () {
