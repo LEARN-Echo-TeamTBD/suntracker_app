@@ -8,8 +8,8 @@ class Home extends React.Component {
   render () {
     return (
         <React.Fragment>
-            <div className="homePage">
-                <h1>Welcome to Suntracker</h1>
+            <div className= "homePage">
+                <h1 className= "hero-text-box">Welcome to Suntracker</h1>
             </div>
         </React.Fragment>
     );
