@@ -19,7 +19,7 @@ RSpec.describe "Uventries", type: :request do
         user_id: user.id
     )}
     let!(:uventry2){Uventry.create(
-        hours_in_sun: 1.3,
+        hours_in_sun: 1.5,
         sun_block_application: false,
         lattitude: 32.7157,
         longitude: -117.1611,
@@ -55,4 +55,24 @@ RSpec.describe "Uventries", type: :request do
         end
 
     end
+
+    describe "POST /users/:user_id/uventries" do
+       it "should create an animal sighting" do
+         headers = {
+             "ACCEPT" => "application/json"
+         }
+         body = {
+             uventry: {
+                 hours_in_sun: 5.5,
+                 sun_block_application: false,
+                 lattitude: 32.7157,
+                 longitude: -117.1611,
+                 time_of_day: 'm',
+                 user_id: user.id
+                 }
+             }
+         post "/users/#{user.id}/uventries", params: body, headers: headers
+         expect(response).to have_http_status(201)
+       end
+   end
 end
