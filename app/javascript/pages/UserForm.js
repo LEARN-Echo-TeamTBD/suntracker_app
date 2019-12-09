@@ -1,24 +1,27 @@
 import React from "react"
+import {Redirect} from "react-router-dom"
 
 class UserForm extends React.Component {
-
   constructor(props){
       super(props)
       this.state = {
           createSuccess:false,
-          sun_block_application: false,
           form: {
               hours_in_sun: 0,
               lattitude: 0,
               longitude: 0,
               time_of_day: '',
-              additional_information: ''
+              additional_information: '',
+              sun_block_application: false,
+              user_id: this.props.user_id
           }
       }
   }
 
   handleClick = (isTrue) => {
-      this.setState({sun_block_application: isTrue})
+      let {form} = this.state
+      form.sun_block_application = isTrue
+      this.setState({form: form})
   }
 
   handleChange = () => {
@@ -28,36 +31,32 @@ class UserForm extends React.Component {
   }
 
   handleSubmit = () => {
-      // submit to the handleNewEntry from parent and clear the input form;
-      // need to implement handleNewEntry in parent
-
-      const { form } = this.state
-      this.props.handleNewEntry(form)
-      .then( () => {
-          this.setState({
-              createSuccess:false,
-              sun_block_application: false,
-              form: {
-                  hours_in_sun: 0,
-                  lattitude: 0,
-                  longitude: 0,
-                  time_of_day: '',
-                  additional_information: ''
-              }
-          })
+      console.log("submit")
+      console.log(JSON.stringify({uventry: this.state.form}))
+      fetch(`/users/${this.props.user_id}/uventries`, {
+          method: 'POST',
+          headers: {
+              "Content-type":"application/json"
+          },
+          body: JSON.stringify({uventry:this.state.form})
+      }).then(response => {
+          console.log(response)
+          if(response.status === 201) {
+              this.setState({createSuccess: true})
+          }
       })
   }
 
   render () {
-      console.log(this.state.sun_block_application);
     return (
         <React.Fragment>
+        {this.state.createSuccess ? <Redirect to="/dashboard" /> : null}
         <h1>Traq yo page</h1>
         <div className="form-border-center">
             <h4>Did you apply sun protection today?</h4>
             <button name='sun_block_application' value={true} type="button"
-            className={this.state.sun_block_application == true ? "btn btn-info" : "btn btn-outline-info"} onClick={() => this.handleClick(true)}>Yes</button>
-            <button value={false} type="button" className={this.state.sun_block_application == false ? "btn btn-warning" : "btn btn-outline-warning" }  onClick={() => this.handleClick(false)}>No</button>
+            className={this.state.form.sun_block_application == true ? "btn btn-info" : "btn btn-outline-info"} onClick={() => this.handleClick(true)}>Yes</button>
+            <button value={false} type="button" className={this.state.form.sun_block_application == false ? "btn btn-warning" : "btn btn-outline-warning" }  onClick={() => this.handleClick(false)}>No</button>
 
             <fieldset className="form-group">
               <legend>Hours of sun exposure</legend>
@@ -78,7 +77,7 @@ class UserForm extends React.Component {
             <button
                 type="submit"
                 className="btn btn-primary"
-                onSubmit={this.handleSubmit}
+                onClick={this.handleSubmit}
                 >Submit
             </button>
         </div>

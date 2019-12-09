@@ -36,14 +36,15 @@ class Header extends React.Component {
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <NavLink className="navbar-brand" to="/" tag={Link}>Sun</NavLink>
             <button
-            className={this.state.navbarClassName ? "navbar-toggler collapsed" : "navbar-toggler"} type="button"
-            data-toggle="collapse"
-            data-target="#navbarColor01"
-            aria-controls="navbarColor01"
-            aria-expanded={this.state.expanded ? "false" : "true"}
-            aria-label="Toggle navigation"
-            onClick={this.handleClick}>
-            <span className="navbar-toggler-icon"></span>
+                className={this.state.navbarClassName ? "navbar-toggler collapsed" : "navbar-toggler"} type="button"
+                data-toggle="collapse"
+                data-target="#navbarColor01"
+                aria-controls="navbarColor01"
+                aria-expanded={this.state.expanded ? "false" : "true"}
+                aria-label="Toggle navigation"
+                onClick={this.handleClick}>
+
+                <span className="navbar-toggler-icon"></span>
             </button>
 
             <div className={this.state.navbarDivClassName ? "navbar-collapse collapse" : "navbar-collapse collapse show"} id="navbarColor01">
@@ -66,7 +67,7 @@ class Header extends React.Component {
               </li>
               <li className="nav-item">
                       {!logged_in &&
-                          <a className="nav-link active" id="logged_in" href="{sign_up_route}">Sign Up<span className="sr-only" >(current)</span></a>
+                          <a className="nav-link active" id="logged_in" href={sign_up_route}>Sign Up<span className="sr-only" >(current)</span></a>
                       }
                 </li>
               <li className="nav-item">

@@ -3,8 +3,6 @@ import { BrowserRouter as  Router, Route, Link, Switch } from 'react-router-dom'
 import { Nav, NavItem, NavLink } from 'reactstrap';
 // import "bootswatch/dist/united/bootstrap.min.css";
 
-
-
 // pages
 import Home from '../pages/Home'
 import Signup from '../pages/Signup'
@@ -16,8 +14,6 @@ import Aboutus from '../pages/Aboutus'
 //React Components
 import Header from '../reactcomponents/Header'
 
-
-
 class App extends React.Component {
   render () {
     return (
@@ -28,7 +24,7 @@ class App extends React.Component {
                     <Route path="/" exact component={Home} />
                     <Route path="/signup" component={Signup} />
                     <Route path="/dashboard" component={Dashboard} />
-                    <Route path="/userform" component={UserForm} />
+                    <Route path="/userform" render={(props) => <UserForm user_id={this.props.current_user_id} />}/>
                     <Route path="/resources" component={Resources} />
                     <Route path="/aboutus" component={Aboutus} />
                 </Switch>
