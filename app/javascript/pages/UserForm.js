@@ -19,10 +19,9 @@ class UserForm extends React.Component {
 
   handleClick = (isTrue) => {
       this.setState({sun_block_application: isTrue})
-      // need to fix the button to flip color
   }
 
-  handleChange = () => {sun_block_application
+  handleChange = () => {
       const {form} = this.state
       form[event.target.name] = event.target.value
       this.setState({form: form})
@@ -62,10 +61,9 @@ class UserForm extends React.Component {
 
             <fieldset className="form-group">
               <legend>Hours of sun exposure</legend>
-                  <p> (need to fix the default slider position and change it to all the way left or middle) </p>
               <label htmlFor="customRange1">Example range</label>
               <input name='hours_in_sun' type="range" className="custom-range" id="customRange1" min="0" max="48" value={this.state.form.hours_in_sun} onChange={this.handleChange}/>
-              <output htmlFor="customRange1" >Your sun exposure: {this.state.form.hours_in_sun/2}</output>
+              <output htmlFor="customRange1" >Your sun exposure: {this.state.form.hours_in_sun/2} {this.state.form.hours_in_sun/2 > 1 ? "hours" : "hour"}</output>
             </fieldset>
 
             <h4>Additional information</h4>
