@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_234023) do
     t.integer "user_id"
     t.integer "uv"
     t.integer "uv_max"
-    t.string "safe_exposure_time"
+    t.integer "safe_exposure_time"
   end
 
 end

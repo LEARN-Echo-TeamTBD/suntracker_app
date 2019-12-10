@@ -103,7 +103,10 @@ class UserForm extends React.Component {
                 )
             }
         console.log('1:',this.state.uvData)
-        const { uv, uv_max, safe_exposure_time } = this.state.uvData.result
+        const { uv, uv_max } = this.state.uvData.result
+
+        const safe_exposure_time = Object.values(uvData.result.safe_exposure_time)[this.props.user_skintone-1]
+
         console.log('2:',
             {
                 uventry:
@@ -116,8 +119,8 @@ class UserForm extends React.Component {
             }
         )
 
+        console.log(safe_exposure_time);
 
-        const currentUserMaxSun = Object.values(uvData.result.safe_exposure_time)[this.props.user_skintone-1]
         const { sunset, sunrise } = uvData.result.sun_info.sun_times
         const sunTime = new Date(sunrise)
         let getDayHours = sunTime.getHours()
@@ -176,7 +179,7 @@ class UserForm extends React.Component {
                 Current Uv Index: {uvData.result.uv}
             </h3>
             <h3>
-                safe_exposure_time: {currentUserMaxSun}
+                safe_exposure_time: {safe_exposure_time}
             </h3>
             <h3>
                 {getSunHours()}
