@@ -1,11 +1,18 @@
 import React from "react"
 import {Redirect} from "react-router-dom"
 
+let coordinates = null
+
 class UserForm extends React.Component {
   constructor(props){
       super(props)
       this.state = {
           createSuccess:false,
+          uvData: null,
+          error: null,
+          coordinates: null,
+          searchUrl: 'https://api.openuv.io/api/v1/uv?lat=32.76&lng=-117.12',
+
           form: {
               hours_in_sun: 0,
               lattitude: 0,
@@ -17,6 +24,43 @@ class UserForm extends React.Component {
           }
       }
   }
+
+      async componentDidMount() {
+          let getPosition = function (options) {
+              return new Promise(function (resolve, reject) {
+                  navigator.geolocation.getCurrentPosition(resolve, reject, options);
+              })
+          }
+          getPosition()
+          .then(({ coords }) => {
+              coordinates = coords
+              const { latitude, longitude } = coords
+              const url = `https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`
+              this.getUVData(url)
+          })
+          .catch((err) => {
+              console.error(err.message)
+          })
+      }
+
+      getUVData = (searchUrl) => {
+           fetch(searchUrl, {
+                  method: 'GET',
+                  headers: {
+                      'x-access-token': 'de93a608c1807aff817033670c4c3b28',
+                      'Content-Type': 'application/json'
+                  }
+              }).then((resp)=>{
+                  if(resp.status !== 200){ throw({message: "Could not perform search. Please try again"})}
+                return resp.json()
+              })
+              .then((data)=>{
+                this.setState({ uvData: data })
+              })
+              .catch((error)=>{
+                this.setState({ error: `Sorry, there was a problem.  ${error.message}`})
+              })
+          }
 
   handleClick = (isTrue) => {
       let {form} = this.state
@@ -38,7 +82,7 @@ class UserForm extends React.Component {
           headers: {
               "Content-type":"application/json"
           },
-          body: JSON.stringify({uventry:this.state.form})
+          body: JSON.stringify({uventry: this.state.form})
       }).then(response => {
           console.log(response)
           if(response.status === 201) {
@@ -48,6 +92,44 @@ class UserForm extends React.Component {
   }
 
   render () {
+        const { uvData } = this.state
+            if (uvData === null || typeof uvData.result === 'undefined'){
+                return (
+                    <React.Fragment>
+                        <div>
+                            <h1>Loading...</h1>
+                        </div>
+                    </React.Fragment>
+                )
+            }
+        console.log('1:',this.state.uvData)
+        const { uv, uv_max, safe_exposure_time } = this.state.uvData.result
+        console.log('2:',
+            {
+                uventry:
+                    {
+                        ...this.state.form,
+                        uv,
+                        uv_max,
+                        safe_exposure_time
+                    }
+            }
+        )
+
+
+        const currentUserMaxSun = Object.values(uvData.result.safe_exposure_time)[this.props.user_skintone-1]
+        const { sunset, sunrise } = uvData.result.sun_info.sun_times
+        const sunTime = new Date(sunrise)
+        let getDayHours = sunTime.getHours()
+
+        const getSunHours = () =>{
+                const up = new Date(sunrise).getHours()
+                const down = new Date(sunset).getHours()
+            return (`Sun rise in ${up} hours, Sunset in ${down} hours`)
+        }
+        console.log(getSunHours())
+
+
     return (
         <React.Fragment>
         {this.state.createSuccess ? <Redirect to="/dashboard" /> : null}
@@ -80,6 +162,25 @@ class UserForm extends React.Component {
                 onClick={this.handleSubmit}
                 >Submit
             </button>
+        </div>
+        <div className="dataDispay">
+            <h3>
+                Latitude: {coordinates.latitude}, Longitude: {coordinates.longitude}
+            </h3>
+            <h3>
+                Strongest UV Index of day: {uvData.result.uv_max}</h3>
+            <h3>
+                Uv-max-time: (time of day when strongest) {uvData.result.uv_max_time}
+            </h3>
+            <h3>
+                Current Uv Index: {uvData.result.uv}
+            </h3>
+            <h3>
+                safe_exposure_time: {currentUserMaxSun}
+            </h3>
+            <h3>
+                {getSunHours()}
+            </h3>
         </div>
         </React.Fragment>
     );
