@@ -42,7 +42,7 @@ class UserForm extends React.Component {
             const url = `https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`
             this.getUVData(url)
 
-            const newForm = {...this.state.form}
+            let newForm = {...this.state.form}
             newForm.lattitude = latitude
             newForm.longitude = longitude
             this.setState({form:newForm})
@@ -74,26 +74,25 @@ class UserForm extends React.Component {
     }
 
     handleClick = (isTrue) => {
-        const {form} = this.state
+        let {form} = this.state
         form.sun_block_application = isTrue
         this.setState({form: form})
     }
 
     handleChange = () => {
-        const {form} = this.state
+        let {form} = this.state
         form[event.target.name] = event.target.value
         this.setState({form: form})
     }
 
     handleSubmit = () => {
-        const formWithUvData = {...this.state.form}
+        let formWithUvData = {...this.state.form}
         formWithUvData.uv = this.state.uvData.result.uv
         formWithUvData.uv_max = this.state.uvData.result.uv_max
         formWithUvData.safe_exposure_time = Object.values(this.state.uvData.result.safe_exposure_time)[this.props.user_skintone-1];
-
+        this.setState({form: formWithUvData});
         console.log("this is formWithUvData", formWithUvData);
         console.log("this is form state", this.state.form);
-        this.setState({form: formWithUvData});
 
         fetch(`/users/${this.props.user_id}/uventries`, {
             method: 'POST',
@@ -101,7 +100,7 @@ class UserForm extends React.Component {
                 "Content-type":"application/json"
             },
             body: JSON.stringify({
-                uventry: this.state.form
+                uventry: formWithUvData
             })
         }).then(response => {
             if(response.status === 201) {
@@ -170,7 +169,7 @@ class UserForm extends React.Component {
                         <legend>Hours of sun exposure</legend>
                         <label htmlFor="customRange1">Example range</label>
                         <input name='hours_in_sun' type="range" className="custom-range" id="customRange1" min="0" max="48"
-                            value={this.state.form.hours_in_sun/2}
+                            value={this.state.form.hours_in_sun}
                             onChange={this.handleChange}/>
                         <output htmlFor="customRange1" >
                             Your sun exposure: {this.state.form.hours_in_sun/2} {this.state.form.hours_in_sun/2 > 1 ? "hours" : "hour"}
