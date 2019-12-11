@@ -102,7 +102,7 @@ class UserForm extends React.Component {
                     </React.Fragment>
                 )
             }
-        console.log('1:',this.state.uvData)
+
         const { uv, uv_max } = this.state.uvData.result
 
         const safe_exposure_time = Object.values(uvData.result.safe_exposure_time)[this.props.user_skintone-1]
@@ -130,8 +130,6 @@ class UserForm extends React.Component {
                 const down = new Date(sunset).getHours()
             return (`Sun rise in ${up} hours, Sunset in ${down} hours`)
         }
-        console.log(getSunHours())
-
 
     return (
         <React.Fragment>
