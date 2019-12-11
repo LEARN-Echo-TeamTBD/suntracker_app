@@ -15,7 +15,7 @@ class UserForm extends React.Component {
 
             form: {
                 hours_in_sun: 0,
-                lattitude: 0,
+                latitude: 0,
                 longitude: 0,
                 time_of_day: '',
                 additional_information: '',
@@ -43,7 +43,7 @@ class UserForm extends React.Component {
             this.getUVData(url)
 
             let newForm = {...this.state.form}
-            newForm.lattitude = latitude
+            newForm.latitude = latitude
             newForm.longitude = longitude
             this.setState({form:newForm})
         })
@@ -136,7 +136,7 @@ class UserForm extends React.Component {
                 { this.state.createSuccess ? <Redirect to="/dashboard" /> : null }
                 <div className="dataDispay">
                     <h3>
-                        lattitude: {coordinates.lattitude}, Longitude: {coordinates.longitude}
+                        latitude: {coordinates.latitude}, Longitude: {coordinates.longitude}
                     </h3>
                     <h3>
                         Strongest UV Index of day: { uvData.result.uv_max }

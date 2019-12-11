@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_234023) do
+ActiveRecord::Schema.define(version: 2019_12_11_231835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,15 +34,15 @@ ActiveRecord::Schema.define(version: 2019_12_10_234023) do
   create_table "uventries", force: :cascade do |t|
     t.integer "hours_in_sun"
     t.boolean "sun_block_application"
-    t.integer "lattitude"
-    t.integer "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.string "time_of_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.integer "uv"
-    t.integer "uv_max"
-    t.integer "safe_exposure_time"
+    t.float "uv"
+    t.float "uv_max"
+    t.float "safe_exposure_time"
   end
 
 end

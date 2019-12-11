@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
         <React.Fragment>
             <div>
                 <h3>
-                    dashboard
+                    This is Dashboard Component
                 </h3>
             </div>
             <Feedback />
