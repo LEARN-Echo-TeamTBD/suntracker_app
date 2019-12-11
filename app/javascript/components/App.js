@@ -24,7 +24,7 @@ class App extends React.Component {
                     <Route path="/" exact component={Home} />
                     <Route path="/signup" component={Signup} />
                     <Route path="/dashboard" component={Dashboard} />
-                    <Route path="/userform" render={(props) => <UserForm user_id={this.props.current_user_id} />}/>
+                    <Route path="/userform" render={(props) => <UserForm user_id={this.props.current_user_id} user_skintone={this.props.current_user_skintone} />}/>
                     <Route path="/resources" component={Resources} />
                     <Route path="/aboutus" component={Aboutus} />
                 </Switch>

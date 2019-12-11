@@ -4,12 +4,18 @@ import Chart from "../reactcomponents/Chart"
 import Feedback from "../reactcomponents/Feedback"
 
 class Dashboard extends React.Component {
-
+    constructor(props){
+       super(props)
+       this.state = {
+       }
+   }
   render () {
     return (
         <React.Fragment>
             <div>
-                <h1>Dashboard yo page</h1>
+                <h3>
+                    dashboard
+                </h3>
             </div>
             <Feedback />
             <Chart />
