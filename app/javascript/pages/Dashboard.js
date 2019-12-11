@@ -1,16 +1,11 @@
 import React from "react"
-let coordinates = null
 
 class Dashboard extends React.Component {
     constructor(props){
        super(props)
        this.state = {
-    
        }
    }
-
-
-
   render () {
     return (
         <React.Fragment>
