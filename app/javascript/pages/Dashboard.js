@@ -1,5 +1,8 @@
 import React from "react"
 
+import Chart from "../reactcomponents/Chart"
+import Feedback from "../reactcomponents/Feedback"
+
 class Dashboard extends React.Component {
     constructor(props){
        super(props)
@@ -14,8 +17,11 @@ class Dashboard extends React.Component {
                     dashboard
                 </h3>
             </div>
+            <Feedback />
+            <Chart />
         </React.Fragment>
     );
   }
 }
+
 export default Dashboard
