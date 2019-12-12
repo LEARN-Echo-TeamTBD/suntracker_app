@@ -7,7 +7,7 @@ class Dashboard extends React.Component {
   constructor(props){
        super(props)
        this.state = {
-         combinedData: [],
+         data: null,
          error: null
        }
    }
@@ -18,9 +18,8 @@ class Dashboard extends React.Component {
        return resp.json()
      })
      .then((data) => {
-       this.setState({ combinedData: data })
-       console.log("this is data", data);
-       console.log("this is state", this.state.combinedData);
+       this.setState({ data: data })
+       console.log("this is state", this.state.data);
      })
      .catch((error) => {
        this.setState({ error: `Sorry, there was a problem.  ${error.message}`})
@@ -28,15 +27,23 @@ class Dashboard extends React.Component {
    }
 
   render () {
+    if (this.state.data === null || typeof this.state.data === 'undefined'){
+        return (
+            <React.Fragment>
+                <div>
+                    <h1>Loading...</h1>
+                </div>
+            </React.Fragment>
+        )
+    }
     return (
         <React.Fragment>
-            <div>
-                <h3>
-                    dashboard
-                </h3>
-            </div>
-            <Feedback />
-            <Chart />
+            <Feedback
+            data={this.state.data}
+            user_skintone={this.props.user_skintone}
+            user_cancer_history={this.props.user_cancer_history}
+            />
+            <Chart data={this.state.data}/>
         </React.Fragment>
     );
   }
