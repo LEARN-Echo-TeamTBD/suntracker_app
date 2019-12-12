@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
- @import url('https://fonts.googleapis.com/css?family=Cabin|Josefin+Sans:600&display=swap" rel="stylesheet');
-
+ @import url('https://fonts.googleapis.com/css?family=Solway:500&display=swap" rel="stylesheet');
+ 
 
  .homePage  {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -36,58 +36,30 @@
  }
 
  .hometitle{
-    font-family: 'Josefin Sans';
     text-decoration: underline;
-    font-size: 500px;
+    position: relative;
+    top: 120px;
+    font-size: 8rem;
+
  }
 
  .mission{
-     margin-top: 125px;
-     margin-bottom: 125px;
-     padding-left: 125px;
-     padding-right: 125px;
-     font-family: 'Cabin', sans-serif;
-}
-.mission p{
-    font-family: 'Cabin';
+    margin-top: -20rem;
+    padding-left: 125px;
+    padding-right: 125px;
     font-size: 1.5rem;
     border: 3.5px solid white;
     border-radius: 15px;
+    font-family: 'monospace';
+    font-size: 2rem;
+    position: relative;
 }
 
- .mission h2{
-     text-decoration-line: underline;
-     font-family: 'Josefin Sans';
-     font-size: 4rem;
-     
-     
- }
-
- .about{
-     margin-top: 60px;
-     font-family: 'Cabin', sans-serif;
- }
-
- .about h2{
-     margin-bottom: 30px;
-     text-decoration-line: underline;
-     font-family: 'Josefin Sans';
-     font-size: 4rem;
- }
-
- .about p{
-     margin-bottom: 15px;
-     font-family: 'Cabin';
- }
-
- .list{
-     padding-left: 15px;
- }
 
  .resources{
      text-align: center;
-     font-family: 'Josefin Sans';
      text-decoration-line: underline;
+     font-size: 7rem;
  }
 
  .cardOne{
@@ -118,3 +90,24 @@
     border-width: 15px;
 
 }
+img{
+    width:680px auto;
+    height:550px;
+    
+}
+.about{
+    text-align: center;
+}
+.member-card {
+    width: 350px;
+    height: auto;
+    margin: 1vmin;
+    margin-top: 2vmin;
+  }
+  .member-cards-container {
+    margin-top: 2vmin;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    /* height: 300px; */
+  }

@@ -6,13 +6,8 @@ class Resources extends React.Component {
   render () {
     return (
         <React.Fragment>
-            <div className="resources">
-                <h1>Resources</h1>   
-            </div>
-
-
-
-          <div className="allCards">
+          <h1 className="resources">Resources</h1>   
+           <div className="allCards">
             <div className="cardOne">
               <div className="card border-primary mb-3">
                  <div className="card-header">Resource</div>
