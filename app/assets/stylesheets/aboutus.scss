@@ -194,6 +194,11 @@ $gradient-color-2:      $accent !default;
   width: 100%;
 }
 
+.social-icon > img {
+  height: 34px;
+  width: 34px;
+}
+
 // Style 1 (Specific styles)
 .team-card-style-1 {
   padding-bottom: 0;
