@@ -27,7 +27,7 @@ class Dashboard extends React.Component {
    }
 
   render () {
-    if (this.state.data === null || typeof this.state.data === 'undefined'){
+    if (this.state.data === null || typeof this.state.data === 'undefined' || this.state.data.length == 0){
         return (
             <React.Fragment>
                 <div>
