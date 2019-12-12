@@ -1,5 +1,9 @@
 <%= react_component("App" , {
     logged_in: user_signed_in?,
     sign_in_route: new_user_session_path,
-    sign_out_route: destroy_user_session_path
+    sign_out_route: destroy_user_session_path,
+    sign_up_route: new_user_registration_path,
+    current_user_id: current_user&.id,
+    current_user_name: current_user&.name,
+    current_user_skintone: current_user&.skintone
 }) %>

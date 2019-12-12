@@ -1,0 +1,63 @@
+<div class="box-signIn">
+    <h2>Sign up</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :age %><br />
+        <%= f.number_field :age, in: 13..110, step: 1, autofocus: true, autocomplete: "age" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :skintone %><br />
+        <%= f.select (:skintone) do %>
+            <% [
+                ['🏻 Light Skin Tone - always burns, never tans', 1],
+                ['🏻 Light-Medium Skin Tone - usually burns, tans minimally', 2],
+                ['🏼 Medium-Light Skin Tone - sometimes mild burn, tans uniformly', 3],
+                ['🏽 Medium Skin Tone - burns minimally, always tans well (moderate brown)', 4],
+                ['🏾 Medium-Dark Skin Tone - burns minimally, always tans well (moderate brown)', 5],
+                ['🏿 Dark Skin Tone - never burns (deeply pigmented dark brown to darkest brown)', 6]
+                ].each do |c| %>
+                <%= content_tag(:option, c.first, value: c.last) %>
+            <% end %>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :skin_cancer_history %><br />
+        <%= f.check_box :skin_cancer_history, checked_value: true, unchecked_value: false, autofocus: true %>
+        <%= label_tag(false, "Family as history of skin cancer") %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+
+</div>

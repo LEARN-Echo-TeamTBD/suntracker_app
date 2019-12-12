@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_212139) do
+ActiveRecord::Schema.define(version: 2019_12_10_234023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,26 @@ ActiveRecord::Schema.define(version: 2019_12_02_212139) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.integer "age"
+    t.integer "skintone"
+    t.boolean "skin_cancer_history"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "uventries", force: :cascade do |t|
+    t.integer "hours_in_sun"
+    t.boolean "sun_block_application"
+    t.integer "lattitude"
+    t.integer "longitude"
+    t.string "time_of_day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "uv"
+    t.integer "uv_max"
+    t.integer "safe_exposure_time"
   end
 
 end
