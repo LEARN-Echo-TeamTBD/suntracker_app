@@ -20,6 +20,6 @@ class UventriesController < ApplicationController
 
     private
     def entry_params
-        params.require(:uventry).permit(:user_id, :hours_in_sun, :sun_block_application, :lattitude, :longitude, :time_of_day, :uv, :uv_max, :safe_exposure_time)
+        params.require(:uventry).permit(:user_id, :hours_in_sun, :sun_block_application, :latitude, :longitude, :time_of_day, :uv, :uv_max, :safe_exposure_time)
     end
 end
