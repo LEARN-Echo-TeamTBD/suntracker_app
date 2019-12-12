@@ -156,6 +156,9 @@ $gradient-color-2:      $accent !default;
 // --------------------------------------------------
 
 // General for all styles
+.team-component {
+  padding-top: 15px;
+}
 .team-card-style-1 {
   position: relative;
   max-width: 360px;
