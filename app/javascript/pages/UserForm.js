@@ -91,8 +91,6 @@ class UserForm extends React.Component {
         formWithUvData.uv_max = this.state.uvData.result.uv_max
         formWithUvData.safe_exposure_time = Object.values(this.state.uvData.result.safe_exposure_time)[this.props.user_skintone-1];
         this.setState({form: formWithUvData});
-        console.log("this is formWithUvData", formWithUvData);
-        console.log("this is form state", this.state.form);
 
         fetch(`/users/${this.props.user_id}/uventries`, {
             method: 'POST',
