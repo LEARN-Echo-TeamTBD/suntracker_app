@@ -14,7 +14,7 @@
  *= require_self
  */
  @import url('https://fonts.googleapis.com/css?family=Solway:500&display=swap" rel="stylesheet');
- 
+
 
  .homePage  {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -68,7 +68,7 @@
      padding-right: 150px;
      margin-top:60px;
      margin-bottom: 60px;
-    
+
  }
  .cardTwo{
     padding-left: 150px;
@@ -94,7 +94,7 @@
 img{
     width:680px auto;
     height:550px;
-    
+
 }
 .about{
     text-align: center;
@@ -143,4 +143,8 @@ img{
 
 #email-pswd input {
     width:20%
+}
+
+.to-center {
+  text-align: center;
 }
