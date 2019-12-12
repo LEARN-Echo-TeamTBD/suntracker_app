@@ -41,7 +41,7 @@ class App extends React.Component {
                         <Route path="/resources" component={Resources} />
                         <Route path="/aboutus" component={Aboutus} />
                     </>}
-                    
+
                 </Switch>
             </Router>
         </React.Fragment>

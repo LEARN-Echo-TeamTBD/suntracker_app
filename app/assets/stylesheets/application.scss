@@ -91,27 +91,15 @@
     border-width: 15px;
 
 }
-img{
+
+.homePage > img {
     width:680px auto;
     height:550px;
-
 }
+
 .about{
     text-align: center;
 }
-.member-card {
-    width: 350px;
-    height: auto;
-    margin: 1vmin;
-    margin-top: 2vmin;
-  }
-  .member-cards-container {
-    margin-top: 2vmin;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    /* height: 300px; */
-  }
 
  .form-border-center {
      width: 15rem;
