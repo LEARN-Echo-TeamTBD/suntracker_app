@@ -16,15 +16,24 @@ import Header from '../reactcomponents/Header'
 
 class App extends React.Component {
   render () {
+    const { logged_in } = this.props
     return (
         <React.Fragment>
             <Router>
                 <Header {...this.props} />
                 <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/signup" component={Signup} />
-                    <Route path="/dashboard" component={Dashboard} />
-                    <Route path="/userform" render={(props) => <UserForm user_id={this.props.current_user_id} user_skintone={this.props.current_user_skintone} />}/>
+                    {logged_in && <>
+                        <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/userform" render={ (props) =>
+                                <UserForm user_id={this.props.current_user_id} user_skintone={this.props.current_user_skintone} />
+                            }/>
+                        </>
+                    }
+
+                    {!logged_in && <>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/signup" component={Signup} />
+                    </>}
                     <Route path="/resources" component={Resources} />
                     <Route path="/aboutus" component={Aboutus} />
                 </Switch>
