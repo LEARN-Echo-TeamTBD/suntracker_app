@@ -15,12 +15,15 @@ class UserForm extends React.Component {
 
             form: {
                 hours_in_sun: 0,
-                lattitude: 0,
+                latitude: 0,
                 longitude: 0,
                 time_of_day: '',
                 additional_information: '',
                 sun_block_application: false,
-                user_id: this.props.user_id
+                user_id: this.props.user_id,
+                uv: 0,
+                uv_max: 0,
+                safe_exposure_time: 0
             }
         }
     }
@@ -38,6 +41,11 @@ class UserForm extends React.Component {
             const { latitude, longitude } = coords
             const url = `https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`
             this.getUVData(url)
+
+            let newForm = {...this.state.form}
+            newForm.latitude = latitude
+            newForm.longitude = longitude
+            this.setState({form:newForm})
         })
         .catch((err) => {
         console.error(err.message)
@@ -48,7 +56,7 @@ class UserForm extends React.Component {
         fetch(searchUrl, {
             method: 'GET',
             headers: {
-            'x-access-token': 'de93a608c1807aff817033670c4c3b28',
+            'x-access-token': '7c760423aceebf9d96046960f47fe8ba',
             'Content-Type': 'application/json'
             }
         }).then((resp)=> {
@@ -56,7 +64,9 @@ class UserForm extends React.Component {
             return resp.json()
         })
         .then((data)=>{
-            this.setState({ uvData: data })
+            this.setState({
+              uvData: data
+            })
         })
         .catch((error)=>{
             this.setState({ error: `Sorry, there was a problem.  ${error.message}`})
@@ -64,25 +74,31 @@ class UserForm extends React.Component {
     }
 
     handleClick = (isTrue) => {
-        const {form} = this.state
+        let {form} = this.state
         form.sun_block_application = isTrue
         this.setState({form: form})
     }
 
     handleChange = () => {
-        const {form} = this.state
+        let {form} = this.state
         form[event.target.name] = event.target.value
         this.setState({form: form})
     }
 
     handleSubmit = () => {
+        let formWithUvData = {...this.state.form}
+        formWithUvData.uv = this.state.uvData.result.uv
+        formWithUvData.uv_max = this.state.uvData.result.uv_max
+        formWithUvData.safe_exposure_time = Object.values(this.state.uvData.result.safe_exposure_time)[this.props.user_skintone-1];
+        this.setState({form: formWithUvData});
+
         fetch(`/users/${this.props.user_id}/uventries`, {
             method: 'POST',
             headers: {
                 "Content-type":"application/json"
             },
             body: JSON.stringify({
-                uventry: this.state.form
+                uventry: formWithUvData
             })
         }).then(response => {
             if(response.status === 201) {
@@ -102,7 +118,7 @@ class UserForm extends React.Component {
                 </React.Fragment>
             )
         }
-        
+
         const safe_exposure_time = Object.values(uvData.result.safe_exposure_time)[this.props.user_skintone-1] || 'No Sun'
 
         const getSunHours = () =>{
@@ -112,12 +128,13 @@ class UserForm extends React.Component {
             return `Sun rise in ${up} hours, Sunset in ${down} hours`
         }
 
+
         return (
             <React.Fragment>
                 { this.state.createSuccess ? <Redirect to="/dashboard" /> : null }
                 <div className="dataDispay">
                     <h3>
-                        Latitude: {coordinates.latitude}, Longitude: {coordinates.longitude}
+                        latitude: {coordinates.latitude}, Longitude: {coordinates.longitude}
                     </h3>
                     <h3>
                         Strongest UV Index of day: { uvData.result.uv_max }
