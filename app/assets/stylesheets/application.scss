@@ -13,11 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css?family=Solway:500&display=swap" rel="stylesheet');
+ 
 
  .homePage  {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     image-url('beach.jpg');
-    height: 100vh;
+    height: 150vh;
     background-size: cover;
     background-position: center;
     opacity: 91%;
@@ -33,6 +35,84 @@
      transform:translate(-50%, -50%);
  }
 
+
+ .hometitle{
+    text-decoration: underline;
+    position: relative;
+    top: 120px;
+    font-size: 8rem;
+
+ }
+
+ .mission{
+    margin-top: -20rem;
+    padding-left: 125px;
+    padding-right: 125px;
+    font-size: 1.5rem;
+    border: 3.5px solid white;
+    border-radius: 15px;
+    font-family: 'monospace';
+    font-size: 2rem;
+    position: relative;
+}
+
+
+ .resources{
+     text-align: center;
+     text-decoration-line: underline;
+     font-size: 7rem;
+ }
+
+ .cardOne{
+     padding-left: 150px;
+     padding-right: 150px;
+     margin-top:60px;
+     margin-bottom: 60px;
+    
+ }
+ .cardTwo{
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 60px;
+}
+.cardThree{
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 60px;
+}
+.cardFour{
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 60px;
+}
+.allCards{
+    border:5px solid #E95420;
+    border-radius: 25px;
+    border-width: 15px;
+
+}
+img{
+    width:680px auto;
+    height:550px;
+    
+}
+.about{
+    text-align: center;
+}
+.member-card {
+    width: 350px;
+    height: auto;
+    margin: 1vmin;
+    margin-top: 2vmin;
+  }
+  .member-cards-container {
+    margin-top: 2vmin;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    /* height: 300px; */
+  }
+
  .form-border-center {
      width: 15rem;
      padding-left: 15px;
@@ -46,6 +126,21 @@
     margin: 10px 0px;
 }
 
-.to-center {
-  text-align: center;
+.box-signIn {
+    margin-top: 3%;
+    width: 100%;
+    text-align: center;
+}
+
+// .btn a {
+//     color: white;
+// }
+//
+.border-space{
+    margin: .25%
+
+}
+
+#email-pswd input {
+    width:20%
 }

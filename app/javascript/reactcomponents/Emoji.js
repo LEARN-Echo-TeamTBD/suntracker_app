@@ -1,8 +1,7 @@
 import React from "react"
 
 const Emoji = (props) => {
-  const severity = Math.floor(((props.max_sun_exposure - props.current_sun_exposure)/props.max_sun_exposure) * 4)
-  // console.log(severity);
+  const severity = Math.ceil(((props.max_sun_exposure - props.current_sun_exposure)/props.max_sun_exposure) * 4)
 
   const emojiMatrix = [
     ["🥵", "👎🏻", "👍🏻", "🙌🏻"],

@@ -25,5 +25,8 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "react-test-renderer": "^16.12.0",
     "webpack-dev-server": "^3.9.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/app/javascript/tests/setupTests.js"
   }
 }
