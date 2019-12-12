@@ -38,11 +38,11 @@ class Dashboard extends React.Component {
     }
     return (
         <React.Fragment>
-            <Feedback
+            {(this.state.data === null || typeof this.state.data === 'undefined') || <Feedback
             data={this.state.data}
             user_skintone={this.props.user_skintone}
             user_cancer_history={this.props.user_cancer_history}
-            />
+            />}
             <Chart data={this.state.data}/>
         </React.Fragment>
     );

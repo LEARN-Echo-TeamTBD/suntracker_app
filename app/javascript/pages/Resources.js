@@ -6,7 +6,7 @@ class Resources extends React.Component {
   render () {
     return (
         <React.Fragment>
-          <h1 className="resources">Resources</h1>   
+          <h1 className="resources">Resources</h1>
            <div className="allCards">
             <div className="cardOne">
               <div className="card border-primary mb-3">
@@ -18,7 +18,7 @@ class Resources extends React.Component {
                 </div>
              </div>
             </div>
-            
+
             <div className="cardTwo">
              <div className="card border-primary mb-3">
                  <div className="card-header">Resource</div>
@@ -28,7 +28,7 @@ class Resources extends React.Component {
                 </div>
              </div>
             </div>
-          
+
             <div className="cardThree">
              <div className="card border-primary mb-3">
                  <div className="card-header">Resource</div>
