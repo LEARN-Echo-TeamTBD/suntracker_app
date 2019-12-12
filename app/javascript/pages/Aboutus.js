@@ -1,5 +1,5 @@
 import React from "react"
-// import GithubLogo from '../assets/images/GitHub-Mark-64px.png'
+import GithubLogo from '../../assets/images/GitHub-Mark-64px.png'
 
 class Aboutus extends React.Component {
 
@@ -21,7 +21,7 @@ class Aboutus extends React.Component {
                         <div className="team-social-bar text-center">
                           <a className="social-btn sb-style-4 sb-github" href="github.com">
                             <div className="social-icon">
-                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+                            <img src={GithubLogo} />
                             </div>
                           </a>
                           <a className="social-btn sb-style-4 sb-github" href="#"><i className="socicon-github"></i></a><a className="social-btn sb-style-4 sb-stackoverflow" href="#"><i className="socicon-stackoverflow"></i></a><a className="social-btn sb-style-4 sb-skype" href="#"><i className="socicon-skype"></i></a></div>
