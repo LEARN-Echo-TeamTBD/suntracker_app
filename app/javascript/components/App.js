@@ -26,7 +26,7 @@ class App extends React.Component {
                       <Route path="/dashboard"
                         render={(props) => <Dashboard user_id={this.props.current_user_id} user_skintone={this.props.current_user_skintone}
                         user_cancer_history={this.props.current_user_cancer_history}
-                        />}/>
+                        />} />
                         <Route path="/userform" render={ (props) =>
                                 <UserForm user_id={this.props.current_user_id} user_skintone={this.props.current_user_skintone} />
                             }/>
@@ -41,7 +41,7 @@ class App extends React.Component {
                         <Route path="/resources" component={Resources} />
                         <Route path="/aboutus" component={Aboutus} />
                     </>}
-                    
+
                 </Switch>
             </Router>
         </React.Fragment>

@@ -7,27 +7,37 @@ class Dashboard extends React.Component {
   constructor(props){
        super(props)
        this.state = {
-         data: null,
-         error: null
+         data: [],
+         error: null,
+         isLoading: false
        }
    }
 
    componentDidMount() {
+     this.setState({isLoading: true})
      fetch(`/users/${this.props.user_id}/uventries`)
-     .then((resp) => {
-       return resp.json()
-     })
-     .then((data) => {
-       this.setState({ data: data })
-       console.log("this is state", this.state.data);
-     })
-     .catch((error) => {
-       this.setState({ error: `Sorry, there was a problem.  ${error.message}`})
-     })
+         .then((resp) => {
+            if (resp.status !== 200) {
+                //throw new Error()
+            } else {
+                return resp.json()
+            }
+         })
+         .then((data) => {
+           this.setState({
+               data: data,
+               isLoading: false
+            })
+         })
+         .catch((error) => {
+           this.setState({
+               error: `Sorry, there was a problem. ${error.message}`,
+               isLoading: false})
+         })
    }
 
   render () {
-    if (this.state.data === null || typeof this.state.data === 'undefined' || this.state.data.length == 0){
+    if (this.state.isLoading) {
         return (
             <React.Fragment>
                 <div>
@@ -38,10 +48,11 @@ class Dashboard extends React.Component {
     }
     return (
         <React.Fragment>
-            {(this.state.data === null || typeof this.state.data === 'undefined') || <Feedback
-            data={this.state.data}
-            user_skintone={this.props.user_skintone}
-            user_cancer_history={this.props.user_cancer_history}
+            {this.state.data.length > 0 &&
+            <Feedback
+                data={this.state.data[this.state.data.length - 1]}
+                user_skintone={this.props.user_skintone}
+                user_cancer_history={this.props.user_cancer_history}
             />}
             <Chart data={this.state.data}/>
         </React.Fragment>
