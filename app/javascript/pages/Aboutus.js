@@ -45,14 +45,30 @@ class Aboutus extends React.Component {
         <React.Fragment>
           <div className="container">
             <div className="to-center">
-              <h2>Why SunTracker</h2>
+            <h2>About SunTracker</h2>
+              <p> We have designed a simple tracker system that allows our users to log in daily sun exposure data helping them stay on top of there sun exposure.</p>
+              <ul>
+                <li>Track and log daily sun exposure</li>
+                <li>Recieve daily sun analytics</li>
+                <li>Generate graph displaying user sun data</li>
+              </ul>
+              <section class="module">
+                <h1 class="module__heading module__heading--b">Boxed</h1>
+                <ol class="custom-bullet custom-bullet--b">
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>Consectetur adipiscing elit</li>
+                  <li>Integer molestie lorem at massa</li>
+                  <li>Facilisis in pretium nisl aliquet</li>
+                  <li>Nulla volutpat aliquam velit</li>
+                </ol>
+              </section>
               <hr className="my-4" />
               <div className="text-con">
                 <span className="underline-right">Our Team</span>
               </div>
                <div class="row pb-5">
-                 {this.state.team.map(member=>(
-                       <div className="col-xl-3 col-sm-6">
+                 {this.state.team.map((member, index)=>(
+                       <div className="col-xl-3 col-sm-6" key={index}>
                          <div className="team-card-style-1 mx-auto">
                          <div className="team-card-inner">
                              <div className="team-thumb">
