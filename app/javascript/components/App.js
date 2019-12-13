@@ -16,7 +16,7 @@ import Header from '../reactcomponents/Header'
 
 class App extends React.Component {
   render () {
-    const { logged_in } = this.props
+    const { logged_in, sign_in_route } = this.props
     return (
         <React.Fragment>
             <Router>
@@ -36,7 +36,7 @@ class App extends React.Component {
                     }
 
                     {!logged_in && <>
-                        <Route path="/" exact component={Home} />
+                        <Route path="/" exact render={(props) => <Home sign_in_route = {sign_in_route}/>} />
                         <Route path="/signup" component={Signup} />
                         <Route path="/resources" component={Resources} />
                         <Route path="/aboutus" component={Aboutus} />
