@@ -7,8 +7,6 @@ const Feedback = (props) => {
   const current_input = props.data
   const {safe_exposure_time, uv, uv_max, hours_in_sun, sun_block_application} = current_input
   const message = sun_block_application ? "Great job applying sunblock and make sure to re-apply if you plan to stay in the sun!" : "Protect your skin and remember to apply sunblock!"
-
-  console.log(current_input.safe_exposure_time);
     return (
     <React.Fragment>
       <div className="to-center">
