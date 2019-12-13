@@ -7,8 +7,8 @@ $white:                 #ffffff !default;
 $black:                 #000000 !default;
 
 // Brand colors
-$primary:               #fc4a1a !default;
-$accent:                #f7b733 !default;
+$primary:               #E95420 !default;
+$accent:                #e9ecef !default;
 $info:		              #5695fe !default;
 $success:               #33cb81 !default;
 $warning:               #fc8c3a !default;
@@ -92,7 +92,7 @@ $gradient-color-2:      $accent !default;
 // Vertical gradient background
 @mixin gradient-background-vertical($gradient-from: $gradient-color-1, $gradient-to: $gradient-color-2) {
   background: $gradient-from !important;
-  background: linear-gradient(to bottom, $gradient-from 0%, $gradient-from 20%, $gradient-to 100%) !important;
+  background: linear-gradient(to bottom, rgba(251,101,32,1) 0%, rgba(247,183,51,1) 60%, rgba(255,255,255,1) 100%) !important;
 }
 
 // Placeholder text
@@ -301,3 +301,9 @@ $gradient-color-2:      $accent !default;
 }
 
 // Product Description
+.container > ul {
+  // list-style: none;
+  padding-left: 0px;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
