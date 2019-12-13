@@ -163,6 +163,7 @@ $gradient-color-2:      $accent !default;
   position: relative;
   max-width: 360px;
   text-align: center;
+  // min-width: 250px;
 }
 .team-contact-link {
   display: block;
@@ -197,9 +198,21 @@ $gradient-color-2:      $accent !default;
   width: 100%;
 }
 
-.social-icon > img {
-  height: 34px;
+.team-card-inner > ul {
+  // list-style: none;
+  padding-left: 0px;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
+.team-card-inner > ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.team-social-bar-list > li a img {
   width: 34px;
+  height: 34px;
 }
 
 // Style 1 (Specific styles)
