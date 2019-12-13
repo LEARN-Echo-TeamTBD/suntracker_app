@@ -1,36 +1,104 @@
-//This is a template, and is still getting worked on
-
-
 import React from "react"
-import Github from './github2.png'
+import GithubLogo from '../../assets/images/GitHub-Mark-64px.png'
+import JoycePhoto from '../../assets/images/Joyce.jpg'
+
 
 class Aboutus extends React.Component {
- 
+
 
   render () {
     return (
         <React.Fragment>
-               <div className = "member-cards-container">
-                 <div className = "member-card">
-                  <div className="card mb-3">
-                  <h3 className="card-header">
-                  </h3>
-                  <div className="card-body">
-                    <h5 className="card-title" className='member-age'>22</h5>
+          <div className="container">
+            <div className="to-center">
+              <h2>Our product</h2>
+              <hr class="my-4" />
+              <div class="text-con">
+                <span class="underline-right">Our Team</span>
+              </div>
+            </div>
+                <div className="row pb-5">
+                  <div className="col-xl-3 col-sm-6">
+        						<div className="team-card-style-1">
+        						<div className="team-card-inner">
+                        <div className="team-thumb">
+                          <img src={JoycePhoto} alt="Team Member Picture" />
+                        </div>
+        								<h4 className="team-name">William Smith</h4>
+        								<span className="team-position">Lead Programmer</span>
+        								<a className="team-contact-link" href="mailto:info@example.com"><i className="fe-icon-mail"></i>&nbsp;info@example.com</a>
+                        <div className="team-social-bar text-center">
+                          <a className="social-btn sb-style-4 sb-github" href="github.com">
+                            <div className="social-icon">
+                            <img src={GithubLogo} />
+                            </div>
+                          </a>
+                          <a className="social-btn sb-style-4 sb-github" href="#"><i className="socicon-github"></i></a><a className="social-btn sb-style-4 sb-stackoverflow" href="#"><i className="socicon-stackoverflow"></i></a><a className="social-btn sb-style-4 sb-skype" href="#"><i className="socicon-skype"></i></a></div>
+                      </div>
+                    </div>
                   </div>
-                  <img style={{height: "auto", width: "100%", display: "block"}} src="https://live.staticflickr.com/68/172629460_f55d8b084d_z.jpg" alt="Card image" />
-                  <div className="card-body">
-                  <p className="card-text" className='member-enjoys'>name</p>
+
+                  <div className="col-xl-3 col-sm-6">
+        						<div className="team-card-style-1">
+        						<div className="team-card-inner">
+                        <div className="team-thumb">
+                          <img src="https://demo.createx.studio/createx/img/team/style-1/01.jpg" alt="Team Member Picture" />
+                        </div>
+        								<h4 className="team-name">William Smith</h4>
+        								<span className="team-position">Lead Programmer</span>
+        								<a className="team-contact-link" href="mailto:info@example.com"><i className="fe-icon-mail"></i>&nbsp;info@example.com</a>
+                        <div className="team-social-bar text-center">
+                          <a className="social-btn sb-style-4 sb-github" href="github.com">
+                            <div className="social-icon">
+                            <img src={GithubLogo} />
+                            </div>
+                          </a>
+                          <a className="social-btn sb-style-4 sb-github" href="#"><i className="socicon-github"></i></a><a className="social-btn sb-style-4 sb-stackoverflow" href="#"><i className="socicon-stackoverflow"></i></a><a className="social-btn sb-style-4 sb-skype" href="#"><i className="socicon-skype"></i></a></div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="card-body">
-                     <a href="https://github.com/"  target="_blank" class="card-link"><i class="fab fa-github"></i> github</a>
-                     <a href="#" class="card-link">Delete</a>
-                   </div>
-                   <div className="card-footer text-muted">
-                   </div>
+
+                  <div className="col-xl-3 col-sm-6">
+        						<div className="team-card-style-1">
+        						<div className="team-card-inner">
+                        <div className="team-thumb">
+                          <img src="https://demo.createx.studio/createx/img/team/style-1/01.jpg" alt="Team Member Picture" />
+                        </div>
+        								<h4 className="team-name">William Smith</h4>
+        								<span className="team-position">Lead Programmer</span>
+        								<a className="team-contact-link" href="mailto:info@example.com"><i className="fe-icon-mail"></i>&nbsp;info@example.com</a>
+                        <div className="team-social-bar text-center">
+                          <a className="social-btn sb-style-4 sb-github" href="github.com">
+                            <div className="social-icon">
+                            <img src={GithubLogo} />
+                            </div>
+                          </a>
+                          <a className="social-btn sb-style-4 sb-github" href="#"><i className="socicon-github"></i></a><a className="social-btn sb-style-4 sb-stackoverflow" href="#"><i className="socicon-stackoverflow"></i></a><a className="social-btn sb-style-4 sb-skype" href="#"><i className="socicon-skype"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-xl-3 col-sm-6">
+        						<div className="team-card-style-1">
+        						<div className="team-card-inner">
+                        <div className="team-thumb">
+                          <img src="https://demo.createx.studio/createx/img/team/style-1/01.jpg" alt="Team Member Picture" />
+                        </div>
+        								<h4 className="team-name">William Smith</h4>
+        								<span className="team-position">Lead Programmer</span>
+        								<a className="team-contact-link" href="mailto:info@example.com"><i className="fe-icon-mail"></i>&nbsp;info@example.com</a>
+                        <div className="team-social-bar text-center">
+                          <a className="social-btn sb-style-4 sb-github" href="github.com">
+                            <div className="social-icon">
+                            <img src={GithubLogo} />
+                            </div>
+                          </a>
+                          <a className="social-btn sb-style-4 sb-github" href="#"><i className="socicon-github"></i></a><a className="social-btn sb-style-4 sb-stackoverflow" href="#"><i className="socicon-stackoverflow"></i></a><a className="social-btn sb-style-4 sb-skype" href="#"><i className="socicon-skype"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                </div>
-        </div>
+              </div>
         </React.Fragment>
     );
   }
