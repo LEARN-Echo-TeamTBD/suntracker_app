@@ -9,10 +9,14 @@ class Aboutus extends React.Component {
   render () {
     return (
         <React.Fragment>
-        <h2>Our product</h2>
-
-        <h2>Our Team</h2>
           <div className="container">
+            <div className="to-center">
+              <h2>Our product</h2>
+              <hr class="my-4" />
+              <div class="text-con">
+                <span class="underline-right">Our Team</span>
+              </div>
+            </div>
                 <div className="row pb-5">
                   <div className="col-xl-3 col-sm-6">
         						<div className="team-card-style-1">
