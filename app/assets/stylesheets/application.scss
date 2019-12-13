@@ -36,26 +36,23 @@
  }
 
 
- .hometitle{
+ .homePage > h1 {
     text-decoration: underline;
     position: relative;
-    top: 120px;
-    font-size: 8rem;
-
+    top: 15vh;
+    font-size: 8vw;
  }
 
- .mission{
-    margin-top: -20rem;
-    padding-left: 125px;
-    padding-right: 125px;
-    font-size: 1.5rem;
-    border: 3.5px solid white;
-    border-radius: 15px;
-    font-family: 'monospace';
-    font-size: 2rem;
-    position: relative;
+ .mission {
+   margin-top: -30vw;
+   margin-bottom: 2rem;
+   padding-left: 12vw;
+   padding-right: 12vw;
+   border-radius: 15px;
+   font-family: 'monospace';
+   font-size: 2rem;
+   position: relative;
 }
-
 
  .resources{
      text-align: center;
@@ -93,8 +90,7 @@
 }
 
 .homePage > img {
-    width:680px auto;
-    height:550px;
+    height:55vw;
 }
 
 .about{
