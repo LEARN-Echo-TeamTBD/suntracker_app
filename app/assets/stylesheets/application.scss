@@ -46,7 +46,6 @@
     font-weight: bold;
     letter-spacing: 1.5px;
     text-shadow: 2px 2px #ea5420;
-    ;
  }
 
  .mission{
@@ -144,7 +143,7 @@
     background: #e9f2f5;
 }
 
-.line-break { 
+.line-break {
     background:#f18d6e;
     opacity: 0.85;
     display: flex;
@@ -163,23 +162,23 @@
     margin-top: 3px;
 }
 
-.field label { 
+.field label {
     margin: 1%;
-   
+
 }
 
 /*< !--- sign up page --> */
 
-#user_skintone { 
-    width: 36%; 
-} 
-
-.actions input { 
-    margin-top: 5px;
-    
+#user_skintone {
+    width: 36%;
 }
 
-.line-break-signup { 
+.actions input {
+    margin-top: 5px;
+
+}
+
+.line-break-signup {
     background:#f18d6e;
     opacity: 0.85;
     display: flex;
@@ -189,7 +188,7 @@
     margin-left: 39%;
 }
 
-.line-break-forgot-pswd { 
+.line-break-forgot-pswd {
     background:#f18d6e;
     opacity: 0.85;
     display: flex;
@@ -198,17 +197,18 @@
     width: 47%;
     margin-left: 25%;
 }
-input { 
+input {
  .to-center {
-  text-align: center;
+        text-align: center;
+    }
 }
 
-// home 
+// home
 
 /*---------BUTTONS ----*/
 
 .btn:link,
-.btn:visited { 
+.btn:visited {
     display: inline-block;
     padding: 10px 30px;
     font-weight: 300;
@@ -217,8 +217,8 @@ input {
     transition: all 0.2s;
 }
 
-.btn-full:link, 
-.btn-full:visited { 
+.btn-full:link,
+.btn-full:visited {
     border: 1px solid;
     color:white;
     border-color:rgb(89, 205, 255);
@@ -227,15 +227,14 @@ input {
 }
 
 .btn-ghost:link,
-.btn-ghost:visited { 
+.btn-ghost:visited {
     border: 2px solid;
     border-color:rgb(89, 205, 255);
     color: white;
-
 }
 
-.btn.hover,
-.btn:active { 
+.btn:hover,
+.btn:active {
     background-color:rgb(89, 205, 255);
 }
 
