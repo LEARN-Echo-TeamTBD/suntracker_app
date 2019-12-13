@@ -1,5 +1,6 @@
 import React from "react"
 import GithubLogo from '../../assets/images/GitHub-Mark-64px.png'
+import LinkInLogo from '../../assets/images/LI-In-Bug.png'
 import JoycePhoto from '../../assets/images/Joyce.jpg'
 import JesusPhoto from '../../assets/images/jesus.jpg'
 import BenPhoto from '../../assets/images/ben.jpeg'
@@ -11,31 +12,31 @@ class Aboutus extends React.Component {
       {
         name:'Joyce He',
         image:JoycePhoto,
-        logo: GithubLogo,
-        link:'https://github.com/',
+        githubLink:'https://github.com/jiayu-joyce-he',
+        linkedInLink:'https://www.linkedin.com/in/jiayu-joyce-he/',
         about:"hello"
       },
       {
         name:'Benjamin Geyer',
         image:BenPhoto,
-        logo: GithubLogo,
-        link:'https://github.com/',
+        githubLink:'https://github.com/Benjamin-G',
+        linkedInLink:'https://www.linkedin.com/in/benjamin-r-geyer/',
         about:"hello"
     },
     {
         name:'Stephan Bilham',
         image:StephanPhoto,
-        logo: GithubLogo,
-        link:'https://github.com/',
+        githubLink:'https://github.com/stephenbilham',
+        linkedInLink:'https://www.linkedin.com/in/srbilham/',
         about:"hello"
     },
     {
         name:'Jesus Ortega',
         image:JesusPhoto,
-        logo: GithubLogo,
-        link:'https://github.com/',
+        githubLink:'https://github.com/Jortega23',
+        linkedInLink:'https://www.linkedin.com/in/jesus-codes/',
         about:"hello"
-    }
+      }
     ]
   }
 
@@ -60,13 +61,18 @@ class Aboutus extends React.Component {
                              <h4 className="team-name">{member.name}</h4>
                              <span className="team-position">Programmer</span>
                              <a className="team-contact-link" href="mailto:info@example.com"><i className="fe-icon-mail"></i>&nbsp;info@example.com</a>
-                             <div className="team-social-bar text-center">
-                               <a className="social-btn sb-style-4 sb-github" href={member.link}>
-                                 <div className="social-icon">
-                                 <img src={member.logo} />
-                                 </div>
-                               </a>
-                               <a className="social-btn sb-style-4 sb-github" href="#"><i className="socicon-github"></i></a><a className="social-btn sb-style-4 sb-stackoverflow" href="#"><i className="socicon-stackoverflow"></i></a><a className="social-btn sb-style-4 sb-skype" href="#"><i className="socicon-skype"></i></a></div>
+                              <ul className="team-social-bar-list">
+                                <li>
+                                  <a className="social-btn sb-style-4" href={member.githubLink} title="Github Link">
+                                    <img src={GithubLogo} />
+                                  </a>
+                                </li>
+                                <li>
+                                  <a className="social-btn sb-style-4" href={member.linkedInLink} title="Linkedin Link">
+                                  <img src={LinkInLogo} />
+                                  </a>
+                                </li>
+                              </ul>
                            </div>
                          </div>
                        </div>

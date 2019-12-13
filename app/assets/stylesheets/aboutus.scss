@@ -198,9 +198,19 @@ $gradient-color-2:      $accent !default;
   width: 100%;
 }
 
-.social-icon > img {
-  height: 34px;
+.team-card-inner > ul {
+  // list-style: none;
+  padding-left: 0px;
+}
+
+li {
+    display: inline-block;
+    margin: 10px;
+}
+
+.team-social-bar-list > li a img {
   width: 34px;
+  height: 34px;
 }
 
 // Style 1 (Specific styles)
