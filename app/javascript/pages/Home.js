@@ -19,7 +19,7 @@ class Home extends React.Component {
             <img className="home-logo" src={Sunlogo} alt="logo"/>
                <div className="front-info">
                     <p className='mission'>Our mission is help promote sun awarness with a simple, fun and interactive system. We encourage our users to track the amount of sun exposure they are recieving on a day to day basis.
- We display our users there data to help them visually keep track of there exposure, along with providing rescources to help care for there skin.
+ We display our users their data to help them visually keep track of there exposure, along with providing rescources to help care for there skin.
                     </p>
                     <div className="home-buttons"> 
                       <a className="btn btn-full" href={sign_in_route}>&nbsp;Sign in &nbsp; </a>
