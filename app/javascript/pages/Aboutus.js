@@ -1,7 +1,7 @@
 import React from "react"
 import GithubLogo from '../../assets/images/GitHub-Mark-64px.png'
 import LinkInLogo from '../../assets/images/LI-In-Bug.png'
-import JoycePhoto from '../../assets/images/Joyce.jpg'
+import JoycePhoto from '../../assets/images/Joyce.png'
 import JesusPhoto from '../../assets/images/jesus.jpg'
 import BenPhoto from '../../assets/images/ben.jpeg'
 import StephanPhoto from '../../assets/images/stephan.jpeg'
@@ -61,14 +61,15 @@ class Aboutus extends React.Component {
                              <h4 className="team-name">{member.name}</h4>
                              <span className="team-position">Programmer</span>
                              <a className="team-contact-link" href="mailto:info@example.com"><i className="fe-icon-mail"></i>&nbsp;info@example.com</a>
+                             <hr class="my-4" />
                               <ul className="team-social-bar-list">
                                 <li>
-                                  <a className="social-btn sb-style-4" href={member.githubLink} title="Github Link">
+                                  <a className="social-btn sb-style-4" href={member.githubLink} title="Github Link" target="_blank">
                                     <img src={GithubLogo} />
                                   </a>
                                 </li>
                                 <li>
-                                  <a className="social-btn sb-style-4" href={member.linkedInLink} title="Linkedin Link">
+                                  <a className="social-btn sb-style-4" href={member.linkedInLink} title="Linkedin Link" target="_blank">
                                   <img src={LinkInLogo} />
                                   </a>
                                 </li>

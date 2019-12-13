@@ -201,11 +201,13 @@ $gradient-color-2:      $accent !default;
 .team-card-inner > ul {
   // list-style: none;
   padding-left: 0px;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
 }
 
-li {
-    display: inline-block;
-    margin: 10px;
+.team-card-inner > ul li {
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .team-social-bar-list > li a img {
