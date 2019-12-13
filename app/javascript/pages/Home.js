@@ -19,7 +19,7 @@ class Home extends React.Component {
                       We display our users there data to help them visually keep track of there exposure, along with providing rescources to help care for there skin.
                     </p>
                     <Link to="/aboutus">
-                    <button type="button" class="btn btn-primary btn-lg">About</button>
+                    <button type="button" className="btn btn-primary btn-lg">About</button>
                     </Link>
             </div>
           </React.Fragment>
