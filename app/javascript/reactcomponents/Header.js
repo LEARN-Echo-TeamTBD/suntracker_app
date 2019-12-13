@@ -33,7 +33,7 @@ class Header extends React.Component {
     return (
         <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <NavLink className="navbar-brand" to="/" tag={Link}>Sun</NavLink>
+            <NavLink className="navbar-brand" to="/" tag={Link}>Home</NavLink>
             <button
                 className={this.state.navbarClassName ? "navbar-toggler collapsed" : "navbar-toggler"} type="button"
                 data-toggle="collapse"

@@ -11,21 +11,26 @@ class UserForm extends React.Component {
             uvData: null,
             error: null,
             coordinates: null,
+            isLoading: true,
             searchUrl: 'https://api.openuv.io/api/v1/uv?lat=32.76&lng=-117.12',
-
             form: {
                 hours_in_sun: 0,
-                lattitude: 0,
+                latitude: 0,
                 longitude: 0,
                 time_of_day: '',
                 additional_information: '',
                 sun_block_application: false,
-                user_id: this.props.user_id
+                user_id: this.props.user_id,
+                uv: 0,
+                uv_max: 0,
+                safe_exposure_time: 0
             }
         }
     }
 
     async componentDidMount() {
+        this.setState({isLoading: true})
+
         let getPosition = function (options) {
             return new Promise(function (resolve, reject) {
                 navigator.geolocation.getCurrentPosition(resolve, reject, options);
@@ -34,29 +39,38 @@ class UserForm extends React.Component {
 
         getPosition()
             .then(({ coords }) => {
-            coordinates = coords
-            const { latitude, longitude } = coords
-            const url = `https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`
-            this.getUVData(url)
-        })
-        .catch((err) => {
-        console.error(err.message)
-        })
+                coordinates = coords
+                const { latitude, longitude } = coords
+                const url = `https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`
+                this.getUVData(url)
+
+                let newForm = {...this.state.form}
+                newForm.latitude = latitude
+                newForm.longitude = longitude
+                this.setState({form:newForm})
+            })
+            .catch((err) => {
+                console.error(err.message)
+            }
+        )
     }
 
     getUVData = (searchUrl) => {
         fetch(searchUrl, {
             method: 'GET',
             headers: {
-            'x-access-token': 'de93a608c1807aff817033670c4c3b28',
-            'Content-Type': 'application/json'
+                'x-access-token': '0b9c781c07fa550ecfe34df6a62ffd81',
+                'Content-Type': 'application/json'
             }
         }).then((resp)=> {
             if(resp.status !== 200){ throw({message: "Could not perform search. Please try again"})}
             return resp.json()
         })
         .then((data)=>{
-            this.setState({ uvData: data })
+            this.setState({
+              uvData: data,
+              isLoading: false
+            })
         })
         .catch((error)=>{
             this.setState({ error: `Sorry, there was a problem.  ${error.message}`})
@@ -64,25 +78,31 @@ class UserForm extends React.Component {
     }
 
     handleClick = (isTrue) => {
-        const {form} = this.state
+        let {form} = this.state
         form.sun_block_application = isTrue
         this.setState({form: form})
     }
 
     handleChange = () => {
-        const {form} = this.state
+        let {form} = this.state
         form[event.target.name] = event.target.value
         this.setState({form: form})
     }
 
     handleSubmit = () => {
+        let formWithUvData = {...this.state.form}
+        formWithUvData.uv = this.state.uvData.result.uv
+        formWithUvData.uv_max = this.state.uvData.result.uv_max
+        formWithUvData.safe_exposure_time = Object.values(this.state.uvData.result.safe_exposure_time)[this.props.user_skintone-1];
+        this.setState({form: formWithUvData});
+
         fetch(`/users/${this.props.user_id}/uventries`, {
             method: 'POST',
             headers: {
                 "Content-type":"application/json"
             },
             body: JSON.stringify({
-                uventry: this.state.form
+                uventry: formWithUvData
             })
         }).then(response => {
             if(response.status === 201) {
@@ -91,9 +111,13 @@ class UserForm extends React.Component {
         })
     }
 
+    createTime (str) {
+        const date = new Date(str)
+        return `${date.getHours()}:${date.getUTCMinutes()}`
+    }
+
     render () {
-        const { uvData } = this.state
-        if (uvData === null || typeof uvData.result === 'undefined'){
+        if (this.state.isLoading){
             return (
                 <React.Fragment>
                     <div>
@@ -102,38 +126,24 @@ class UserForm extends React.Component {
                 </React.Fragment>
             )
         }
-        
+
+        const {uvData} = this.state
         const safe_exposure_time = Object.values(uvData.result.safe_exposure_time)[this.props.user_skintone-1] || 'No Sun'
 
         const getSunHours = () =>{
             const { sunset, sunrise } = uvData.result.sun_info.sun_times
-            const up = new Date(sunrise).getHours()
-            const down = new Date(sunset).getHours()
-            return `Sun rise in ${up} hours, Sunset in ${down} hours`
+            return `Sunrise at ${this.createTime(sunrise)} and Sunset at ${this.createTime(sunset)}.`
         }
+
 
         return (
             <React.Fragment>
                 { this.state.createSuccess ? <Redirect to="/dashboard" /> : null }
                 <div className="dataDispay">
-                    <h3>
-                        Latitude: {coordinates.latitude}, Longitude: {coordinates.longitude}
-                    </h3>
-                    <h3>
-                        Strongest UV Index of day: { uvData.result.uv_max }
-                    </h3>
-                    <h3>
-                        Uv-max-time: (time of day when strongest) { uvData.result.uv_max_time }
-                    </h3>
-                    <h3>
-                        Current Uv Index: { uvData.result.uv }
-                    </h3>
-                    <h3>
-                        Safe Exposure Time: { safe_exposure_time }
-                    </h3>
-                    <h3>
-                        {getSunHours()}
-                    </h3>
+                    <p> Your location : Latitude: {coordinates.latitude.toFixed(4)}, Longitude: {coordinates.longitude.toFixed(4)} </p>
+                    <p> For your location the {getSunHours()} </p>
+                    <p> The Strongest UV index of { uvData.result.uv_max } will be at { this.createTime(uvData.result.uv_max_time) } </p>
+                    <p> With the current UV index of { uvData.result.uv }, { (safe_exposure_time/60) <= 24 ? `you can spend ${(safe_exposure_time/60).toFixed(2)} hours in current condition` : "you can enjoy being outside freely!"}</p>
                 </div>
                 <div className="form-border-center">
                     <h4>
@@ -148,7 +158,6 @@ class UserForm extends React.Component {
 
                     <fieldset className="form-group">
                         <legend>Hours of sun exposure</legend>
-                        <label htmlFor="customRange1">Example range</label>
                         <input name='hours_in_sun' type="range" className="custom-range" id="customRange1" min="0" max="48"
                             value={this.state.form.hours_in_sun}
                             onChange={this.handleChange}/>

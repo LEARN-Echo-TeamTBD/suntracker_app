@@ -13,18 +13,17 @@
  *= require_tree .
  *= require_self
  */
-body { 
-}
+
+ @import url('https://fonts.googleapis.com/css?family=Solway:500&display=swap" rel="stylesheet');
+
 
  .homePage  {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    image-url('beach.jpg');
-    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
+    image-url('background.jpg');
+    height: 150vh;
     background-size: cover;
     background-position: center;
-    opacity: 91%;
     color: white;
-    text-align: center;
  }
 
  .hero-text-box {
@@ -34,6 +33,78 @@ body {
      left: 50%;
      transform:translate(-50%, -50%);
  }
+
+
+ .hometitle{
+    position: relative;
+    letter-spacing: -0.5px;
+    top: 10px;
+    font-weight: 500;
+    font-size: 2rem;
+    padding-left: 15px;
+    padding-bottom: 5px;
+ }
+
+ .mission{
+    font-size: 1.5rem;
+    border-radius: 15px;
+    background-color: #00000047;
+    font-family: 'monospace';
+    font-size: 1rem;
+    position: relative;
+    text-align: center;
+    padding: 17px;
+    margin: 1% 25% 1% 25%;
+
+}
+ .resources{
+     text-align: center;
+     text-decoration-line: underline;
+     font-size: 7rem;
+ }
+
+ .cardOne{
+     padding-left: 150px;
+     padding-right: 150px;
+     margin-top:60px;
+     margin-bottom: 60px;
+
+ }
+ .cardTwo{
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 60px;
+}
+.cardThree{
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 60px;
+}
+.cardFour{
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 60px;
+}
+.allCards{
+    border:5px solid #E95420;
+    border-radius: 25px;
+    border-width: 15px;
+
+}
+
+.home-logo{
+    max-width: 120px;
+    max-height: 120px;
+    padding-left: 38px;
+}
+
+.front-info {
+    margin-top: 325px
+}
+
+.about{
+    text-align: center;
+}
 
  .form-border-center {
      width: 15rem;
@@ -120,5 +191,46 @@ body {
     margin-left: 25%;
 }
 input { 
+ .to-center {
+  text-align: center;
+}
+
+// home 
+
+/*---------BUTTONS ----*/
+
+.btn:link,
+.btn:visited { 
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: all 0.2s;
+}
+
+.btn-full:link, 
+.btn-full:visited { 
+    border: 1px solid;
+    color:white;
+    border-color:rgb(89, 205, 255);
+    background-color:rgb(89, 205, 255);
+    margin-right: 23px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited { 
+    border: 2px solid;
+    border-color:rgb(89, 205, 255);
+    color: white;
+
+}
+
+.btn.hover,
+.btn:active { 
+    background-color:rgb(89, 205, 255);
+}
+
+.home-buttons {
     text-align: center;
 }
