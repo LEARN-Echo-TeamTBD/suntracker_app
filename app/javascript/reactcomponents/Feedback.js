@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 const Feedback = (props) => {
   const current_input = props.data
   const {safe_exposure_time, uv, uv_max, hours_in_sun, sun_block_application} = current_input
+
   const message = sun_block_application ? "Great job applying sunblock and make sure to re-apply if you plan to stay in the sun!" : "Protect your skin and remember to apply sunblock!"
 
-  console.log(current_input.safe_exposure_time);
     return (
     <React.Fragment>
       <div className="to-center">
@@ -22,7 +22,7 @@ const Feedback = (props) => {
           The current UV level is <span className="badge badge-secondary">{uv.toFixed(2)}</span>, and the maximum UV level for today is <span className="badge badge-secondary">{uv_max.toFixed(2)}</span>.
         </p>
         <p className="lead">
-          Based on your skin tone, your <span className="badge badge-secondary">{hours_in_sun/2}</span> {hours_in_sun <= 1 ? 'hour' : 'hours'}sun exposure exceeded the healthy amount of <span className="badge badge-secondary">{(safe_exposure_time/3600).toFixed(1)}</span> hours.
+          Based on your skin tone, your <span className="badge badge-secondary">{hours_in_sun}</span> {hours_in_sun <= 1 ? 'hour' : 'hours'} of  sun exposure {hours_in_sun > (safe_exposure_time/60) ? 'exceeded' : 'is less than'} the healthy amount of <span className="badge badge-secondary">{(safe_exposure_time/60).toFixed(1)}</span> hours.
         </p>
         <p className={sun_block_application ? "text-success" : "text-danger"}> {message}</p>
         <hr className="my-4" />
