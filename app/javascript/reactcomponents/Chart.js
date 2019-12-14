@@ -1,46 +1,7 @@
 import React from 'react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, Text
-} from 'recharts';
-
-const data = [
-  {
-    name: 'A', uv: 0, pv: 2400, amt: 2400,
-  },
-  {
-    name: 'B', uv: 0.2472, pv: 1398, amt: 2210,
-  },
-  {
-    name: 'C', uv: 0.8342, pv: 9800, amt: 2290,
-  },
-  {
-    name: 'D', uv: 1.7612, pv: 3908, amt: 2000,
-  },
-  {
-    name: 'E', uv: 2.5542, pv: 4800, amt: 2181,
-  },
-  {
-    name: 'F', uv: 2.9147, pv: 3800, amt: 2500,
-  },
-  {
-    name: 'G', uv: 2.5542, pv: 4300, amt: 2100,
-  },
-  {
-    name: 'H', uv: 2.5542, pv: 4300, amt: 2100,
-  },
-  {
-    name: 'I', uv: 1.7612, pv: 3800, amt: 2500,
-  },
-  {
-    name: 'J', uv: 0.8342, pv: 4300, amt: 2100,
-  },
-  {
-    name: 'K', uv: 0.2472, pv: 4300, amt: 2100,
-  },
-  {
-    name: 'L', uv: 0, pv: 4300, amt: 2100,
-  }
-];
+} from 'recharts'
 
 const CustomizedLabelB = () => {
     return (
@@ -54,18 +15,86 @@ const CustomizedLabelB = () => {
             transform="rotate(-90)"
             //scaleToFit={true}
         >
-            Time to Burn
+            UV Index
         </Text>
     );
 };
 
 class Chart extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isLoading: true,
+            forecastData: null
+        }
+    }
+
+    async componentDidMount() {
+        const getPosition = function (options) {
+            return new Promise(function (resolve, reject) {
+                navigator.geolocation.getCurrentPosition(resolve, reject, options)
+            })
+        }
+
+        getPosition()
+            .then(({ coords }) => {
+                const { latitude, longitude } = coords
+                const url = `https://api.openuv.io/api/v1/forecast?lat=${latitude}&lng=${longitude}`
+                this.getUVForecast(url)
+            })
+            .catch((err) => {
+                console.error(err.message)
+            }
+        )
+    }
+
+    getUVForecast = (searchUrl) => {
+        fetch(searchUrl, {
+            method: 'GET',
+            headers: {
+                'x-access-token': '0b9c781c07fa550ecfe34df6a62ffd81',
+                'Content-Type': 'application/json'
+                }
+            }).then((resp)=> {
+                if(resp.status !== 200){ throw({message: "Could not perform search. Please try again"})}
+                return resp.json()
+            })
+            .then((data)=>{
+                const forecastData = data.result.map( elm =>
+                    {
+                        const date = new Date(elm.uv_time)
+                        const name = date.getHours() >= 12 ? `${date.getHours() - 12}PM` : `${date.getHours()}AM`
+                        return {
+                            uv: elm.uv,
+                            name
+                        }
+                    })
+                this.setState({
+                  forecastData,
+                  isLoading: false
+                })
+            })
+            .catch((error)=>{
+                this.setState({ error: `Sorry, there was a problem.  ${error.message}`})
+            })
+    }
+
+
   render() {
+      if (this.state.isLoading){
+          return (
+              <React.Fragment>
+                  <div>
+                      <h1>Forecasting chart is loading... </h1>
+                  </div>
+              </React.Fragment>
+          )
+      }
       return (
         <LineChart
           width={600}
           height={400}
-          data={data}
+          data={this.state.forecastData}
           margin={{
             top: 20, right: 20, bottom: 30, left: 20,
           }}
