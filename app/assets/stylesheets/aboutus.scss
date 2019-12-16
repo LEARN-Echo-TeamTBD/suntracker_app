@@ -7,8 +7,8 @@ $white:                 #ffffff !default;
 $black:                 #000000 !default;
 
 // Brand colors
-$primary:               #E95420 !default;
-$accent:                #e9ecef !default;
+$primary:               #ff4f69 !default;
+$accent:                #f87d42 !default;
 $info:		              #5695fe !default;
 $success:               #33cb81 !default;
 $warning:               #fc8c3a !default;
@@ -29,9 +29,7 @@ $font-size-xs:         		floor(($font-size-base * .625)) !default; // ~10px
 $font-size-button-md:         $font-size-sm !default;
 $navi-link-font-size:         $font-size-sm !default;
 
-//== Box Shadow
-// -------------------------------------------------------
-
+// Box Shadow
 $box-shadow-base:              0 22px 36px -12px rgba($gray-dark, .13) !default;
 $box-shadow-base-pressed:      0 10px 24px -10px rgba($gray-dark, .22) !default;
 $box-shadow-base-inset:        inset 0 20px 30px -12px rgba($gray-dark, .12) !default;
@@ -65,9 +63,6 @@ $gradient-color-1:      $primary !default;
 $gradient-color-2:      $accent !default;
 
 
-
-
-//
 // Mixins
 // --------------------------------------------------
 
@@ -92,7 +87,7 @@ $gradient-color-2:      $accent !default;
 // Vertical gradient background
 @mixin gradient-background-vertical($gradient-from: $gradient-color-1, $gradient-to: $gradient-color-2) {
   background: $gradient-from !important;
-  background: linear-gradient(to bottom, rgba(251,101,32,1) 0%, rgba(247,183,51,1) 60%, rgba(255,255,255,1) 100%) !important;
+  background: linear-gradient(to bottom, rgba(248,125,66,1) 0%, rgba(255,79,105,1) 100%) !important;
 }
 
 // Placeholder text
@@ -140,32 +135,22 @@ $gradient-color-2:      $accent !default;
   h1, h2, h3, h4, h5, h6, p, ul, ol, a { color: $color !important; }
 }
 
-
-
-
-
-
 // Gradient background
 .bg-gradient { @include gradient-background($gradient-color-1, $gradient-color-2);}
 .bg-gradient-vertical { @include gradient-background-vertical($gradient-color-1, $gradient-color-2);}
-
-
-
-//
-// Team
-// --------------------------------------------------
 
 // General for all styles
 
 .team-component {
   padding-top: 15px;
 }
+
 .team-card-style-1 {
   position: relative;
   max-width: 360px;
   text-align: center;
-  // min-width: 250px;
 }
+
 .team-contact-link {
   display: block;
   margin-top: floor($grid-vertical-step / 5);
@@ -181,6 +166,7 @@ $gradient-color-2:      $accent !default;
     vertical-align: middle;
   }
 }
+
 .team-card-style-1 {
   .team-position {
     display: block;
@@ -200,7 +186,6 @@ $gradient-color-2:      $accent !default;
 }
 
 .team-card-inner > ul {
-  // list-style: none;
   padding-left: 0px;
   margin-bottom: 0;
   margin-top: 0.5rem;
@@ -216,7 +201,7 @@ $gradient-color-2:      $accent !default;
   height: 34px;
 }
 
-// Style 1 (Specific styles)
+// Team Card
 .team-card-style-1 {
   padding-bottom: 0;
   > * {
@@ -234,6 +219,7 @@ $gradient-color-2:      $accent !default;
     content: '';
     opacity: 0;
   }
+
   .team-card-inner {
     margin-bottom: floor($grid-vertical-step / 1.5);
     padding: {
@@ -245,6 +231,7 @@ $gradient-color-2:      $accent !default;
     background-color: $white;
     box-shadow: $box-shadow-base;
   }
+
   .team-thumb {
     width: 108px;
     height: 108px;
@@ -253,6 +240,7 @@ $gradient-color-2:      $accent !default;
     border-radius: 50%;
     overflow: hidden;
   }
+
   .team-social-bar {
     margin: {
       top: floor($grid-vertical-step / 1.5);
@@ -260,6 +248,7 @@ $gradient-color-2:      $accent !default;
     }
     transform: scale(.8);
   }
+
   .team-contact-link {
     transition-delay: .12s;
     color: $gray;
@@ -269,6 +258,7 @@ $gradient-color-2:      $accent !default;
       opacity: 1;
     }
   }
+
   .team-card-inner,
   .team-thumb,
   .team-social-bar { transition: all .3s .12s; }
@@ -282,6 +272,7 @@ $gradient-color-2:      $accent !default;
     }
   }
 }
+
 .team-card-style-1:hover {
   &::before {
     height: 100%;
@@ -301,9 +292,67 @@ $gradient-color-2:      $accent !default;
 }
 
 // Product Description
-.container > ul {
-  // list-style: none;
-  padding-left: 0px;
+.problem-statement {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  image-url('product-description.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  padding: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+  color: #D8D8D8;
+  text-shadow: 1px 1px 1px #000;
+}
+
+
+#cuztomiz-blockquote-footer {
+  display: block;
+  font-size: 60%;
+  color: #D8D8D8;
+  margin-top: 0.5em;
+}
+
+.blockquote > p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.about-sun-tracker {
+  padding: 3rem;
+}
+
+.about-sun-tracker > ul {
+  list-style: none;
   margin-bottom: 0;
-  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.about-sun-tracker > h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color:rgba(248,125,66,1);
+  background: -webkit-linear-gradient(45deg, #ff4f69 0%, #f87d42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.about-sun-tracker {
+  font-size: floor($font-size-base * 1.25);
+}
+
+.our-team > h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 3rem;
+  margin-bottom: 0px;
+  background: -webkit-linear-gradient(45deg, #f87d42 0%, #ff4f69 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.our-team {
+  background-color: #F0F3F5;
 }

@@ -13,18 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
  @import url('https://fonts.googleapis.com/css?family=Solway:500&display=swap" rel="stylesheet');
 
 
  .homePage  {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    image-url('beach.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
+    image-url('background.jpg');
     height: 150vh;
     background-size: cover;
     background-position: center;
-    opacity: 91%;
     color: white;
-    text-align: center;
  }
 
  .hero-text-box {
@@ -37,25 +36,32 @@
 
 
  .hometitle{
-    text-decoration: underline;
     position: relative;
-    top: 120px;
-    font-size: 8rem;
-
+    letter-spacing: -0.5px;
+    top: 10px;
+    font-weight: 500;
+    font-size: 2.5rem;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px #ea5420;
  }
 
  .mission{
-    margin-top: -20rem;
-    padding-left: 125px;
-    padding-right: 125px;
     font-size: 1.5rem;
-    border: 3.5px solid white;
     border-radius: 15px;
     font-family: 'monospace';
-    font-size: 2rem;
+    font-size: 1.25rem;
     position: relative;
+    word-spacing: .25px;
+    font-weight: 520;
+    letter-spacing: .5px;
+    text-align: center;
+    text-shadow: 1px 1px black;
+    padding: 17px;
+    margin: -3% 10% 1% 11%;
 }
-
 
  .resources{
      text-align: center;
@@ -92,9 +98,15 @@
 
 }
 
-.homePage > img {
-    width:680px auto;
-    height:550px;
+.home-logo{
+    max-width: 140px;
+    max-height: 140px;
+    padding-left: 38px;
+    margin-left: 23px;
+}
+
+.front-info {
+    margin-top: 325px
 }
 
 .about{
@@ -114,25 +126,119 @@
     margin: 10px 0px;
 }
 
-.box-signIn {
+.box {
+    background-image: url('devisebackground.jpg');
+    background-size: cover;
+    background-position: center;
     margin-top: 3%;
+    height: 150vh;
     width: 100%;
     text-align: center;
+    position: absolute;
+}
+.box-signIn {
+    margin: 15% 32%;
+    padding: 40px 0px;
+    border-style: solid;
+    background: #e9f2f5;
 }
 
-// .btn a {
-//     color: white;
-// }
-//
+.line-break {
+    background:#f18d6e;
+    opacity: 0.85;
+    display: flex;
+    align-self: center;
+    height: 2px;
+    width: 48%;
+    margin-left: 25%;
+}
 .border-space{
     margin: .25%
 
 }
 
 #email-pswd input {
-    width:20%
+    width:50%;
+    margin-top: 3px;
 }
 
-.to-center {
-  text-align: center;
+.field label {
+    margin: 1%;
+
+}
+
+/*< !--- sign up page --> */
+
+#user_skintone {
+    width: 36%;
+}
+
+.actions input {
+    margin-top: 5px;
+
+}
+
+.line-break-signup {
+    background:#f18d6e;
+    opacity: 0.85;
+    display: flex;
+    align-self: center;
+    height: 2px;
+    width: 20%;
+    margin-left: 39%;
+}
+
+.line-break-forgot-pswd {
+    background:#f18d6e;
+    opacity: 0.85;
+    display: flex;
+    align-self: center;
+    height: 2px;
+    width: 47%;
+    margin-left: 25%;
+}
+input {
+ .to-center {
+        text-align: center;
+    }
+}
+
+// home
+
+/*---------BUTTONS ----*/
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: all 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited {
+    color:white;
+    box-shadow: 0 22px 36px -12px rgba(#404040, .13);
+    background: linear-gradient(90deg, rgba(248,125,66,1) 0%, rgba(255,79,105,1) 100%);
+    margin-right: 23px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 2px solid;
+    border-color: rgba(248,125,66,1);
+    color: white;
+}
+
+.btn:hover,
+.btn:active {
+    color: #ffffff;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(to bottom, rgba(248,125,66,1) 0%, rgba(255,79,105,1) 100%);
+    border-color: transparent;
+}
+
+.home-buttons {
+    text-align: center;
 }
