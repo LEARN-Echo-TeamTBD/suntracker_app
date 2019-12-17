@@ -49,7 +49,7 @@ class Header extends React.Component {
             <div className={this.state.navbarDivClassName ? "navbar-collapse collapse" : "navbar-collapse collapse show"} id="navbarColor01">
             <ul className="navbar-nav mr-auto">
             {!logged_in ? null:
-              <li className="nav-item active" onClick={this.handleClick}>
+              <li className="nav-item" onClick={this.handleClick}>
                 <NavLink className="nav-link" tag={Link} to="/userform">Your Logger <span className="sr-only" >(current)</span></NavLink>
               </li>}
 

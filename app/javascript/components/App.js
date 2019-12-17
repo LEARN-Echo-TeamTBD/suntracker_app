@@ -23,6 +23,7 @@ class App extends React.Component {
                 <Header {...this.props} />
                 <Switch>
                     {logged_in && <>
+                      <Route path="/" exact render={(props) => <Home sign_in_route = {sign_in_route}/>} />
                       <Route path="/dashboard"
                         render={(props) => <Dashboard user_id={this.props.current_user_id} user_skintone={this.props.current_user_skintone}
                         user_cancer_history={this.props.current_user_cancer_history}
