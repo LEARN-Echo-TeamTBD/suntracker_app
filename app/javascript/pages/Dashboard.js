@@ -6,7 +6,6 @@ import Feedback from "../reactcomponents/Feedback"
 
 class Dashboard extends React.Component {
   constructor(props){
-      console.log()
        super(props)
        this.state = {
          data: [],
@@ -20,7 +19,6 @@ class Dashboard extends React.Component {
      fetch(`/users/${this.props.user_id}/uventries`)
          .then((resp) => {
             if (resp.status !== 200) {
-                //throw new Error()
             } else {
                 return resp.json()
             }
@@ -41,16 +39,15 @@ class Dashboard extends React.Component {
   render () {
     if (this.state.isLoading) {
         return (
-            <React.Fragment>
+            <>
                 <div>
                     <h1>Loading...</h1>
                 </div>
-            </React.Fragment>
+            </>
         )
     }
     return (
-        <React.Fragment>
-          <div className="to-center">
+        <>
             {this.state.data.length > 0 &&
             <>
                 <Feedback
@@ -60,7 +57,7 @@ class Dashboard extends React.Component {
                 />
                 <Chart data={this.state.data}/>
             </>}
-        </React.Fragment>
+        </>
     );
   }
 }

@@ -36,7 +36,6 @@ class Chart extends React.Component {
         }
         getPosition()
             .then(({ coords }) => {
-                const { latitude, longitude } = coords
                 this.getUVapi(coords)
             })
             .catch((err) => {
@@ -44,9 +43,9 @@ class Chart extends React.Component {
             }
         )
     }
-    
+
     getUVapi = ({ latitude, longitude }) => {
-        fetch(`/uvforecast?uv_api[latitude]=${latitude}&uv_api[longitude]=${longitude}`, {
+        fetch(`/uvapi?uv_api[latitude]=${latitude}&uv_api[longitude]=${longitude}&uv_api[route]=forecast`, {
             method: 'GET',
             headers: {
                 "Content-type":"application/json"

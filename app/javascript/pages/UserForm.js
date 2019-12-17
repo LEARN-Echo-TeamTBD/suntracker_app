@@ -1,7 +1,5 @@
 import React from "react"
-import {Redirect} from "react-router-dom"
-
-let coordinates = null
+import { Redirect } from "react-router-dom"
 
 class UserForm extends React.Component {
     constructor(props){
@@ -10,9 +8,7 @@ class UserForm extends React.Component {
             createSuccess:false,
             uvData: null,
             error: null,
-            coordinates: null,
             isLoading: true,
-            searchUrl: 'https://api.openuv.io/api/v1/uv?lat=32.76&lng=-117.12',
             form: {
                 hours_in_sun: 0,
                 latitude: 0,
@@ -28,26 +24,23 @@ class UserForm extends React.Component {
         }
     }
 
-    async componentDidMount() {
-        this.setState({isLoading: true})
-
-        let getPosition = function (options) {
+    componentDidMount() {
+        const getPosition = function (options) {
             return new Promise(function (resolve, reject) {
                 navigator.geolocation.getCurrentPosition(resolve, reject, options);
             })
         }
-
         getPosition()
             .then(({ coords }) => {
-                coordinates = coords
                 const { latitude, longitude } = coords
-                const url = `https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`
-                this.getUVData(url)
-
-                let newForm = {...this.state.form}
-                newForm.latitude = latitude
-                newForm.longitude = longitude
-                this.setState({form:newForm})
+                this.setState({
+                    form:{
+                        ...this.state.form,
+                        latitude,
+                        longitude
+                    }
+                })
+                this.getUVapi(coords)
             })
             .catch((err) => {
                 console.error(err.message)
@@ -55,18 +48,16 @@ class UserForm extends React.Component {
         )
     }
 
-    getUVData = (searchUrl) => {
-        fetch(searchUrl, {
+    getUVapi = ({ latitude, longitude }) => {
+        fetch(`/uvapi?uv_api[latitude]=${latitude}&uv_api[longitude]=${longitude}&uv_api[route]=uv`, {
             method: 'GET',
             headers: {
-                'x-access-token': '982a6280ca57f2bcea7de6120d859121',
-                'Content-Type': 'application/json'
+                "Content-type":"application/json"
             }
-        }).then((resp)=> {
+        }).then(resp => {
             if(resp.status !== 200){ throw({message: "Could not perform search. Please try again"})}
             return resp.json()
-        })
-        .then((data)=>{
+        }).then((data)=>{
             this.setState({
               uvData: data,
               isLoading: false
@@ -140,7 +131,7 @@ class UserForm extends React.Component {
             <React.Fragment>
                 { this.state.createSuccess ? <Redirect to="/dashboard" /> : null }
                 <div className="dataDispay">
-                    <p> Your location : Latitude: {coordinates.latitude.toFixed(4)}, Longitude: {coordinates.longitude.toFixed(4)} </p>
+                    <p> Your location : Latitude: {this.state.form.latitude.toFixed(4)}, Longitude: {this.state.form.longitude.toFixed(4)} </p>
                     <p> For your location the {getSunHours()} </p>
                     <p> The Strongest UV index of { uvData.result.uv_max } will be at { this.createTime(uvData.result.uv_max_time) } </p>
                     <p> With the current UV index of { uvData.result.uv }, { (safe_exposure_time/60) <= 24 ? `you can spend ${(safe_exposure_time/60).toFixed(2)} hours in current condition` : "you can enjoy being outside freely!"}</p>
