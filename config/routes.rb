@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'uvforecast', to: 'uv_api#forecast'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '*path', to: 'pages#index', constraints: ->(request){ request.format.html? }
   root to: "pages#index"
