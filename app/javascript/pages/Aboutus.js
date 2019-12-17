@@ -65,7 +65,7 @@ class Aboutus extends React.Component {
                     <li>📈understand their sun exposure data</li>
                   </ul>
                   <p>and ultimately maintain healthy skin!</p>
-                  <Link to="/resources" className="btn btn-full">
+                  <Link to="/resources" className="btn btn-primary" >
                   <a>More Resources</a>
                   </Link>
                 </div>
