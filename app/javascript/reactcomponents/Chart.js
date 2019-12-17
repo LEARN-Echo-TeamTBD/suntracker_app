@@ -28,56 +28,51 @@ class Chart extends React.Component {
         }
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         const getPosition = function (options) {
             return new Promise(function (resolve, reject) {
                 navigator.geolocation.getCurrentPosition(resolve, reject, options)
             })
         }
-
         getPosition()
             .then(({ coords }) => {
                 const { latitude, longitude } = coords
-                const url = `https://api.openuv.io/api/v1/forecast?lat=${latitude}&lng=${longitude}`
-                this.getUVForecast(url)
+                this.getUVapi(coords)
             })
             .catch((err) => {
                 console.error(err.message)
             }
         )
     }
-
-    getUVForecast = (searchUrl) => {
-        fetch(searchUrl, {
+    
+    getUVapi = ({ latitude, longitude }) => {
+        fetch(`/uvforecast?uv_api[latitude]=${latitude}&uv_api[longitude]=${longitude}`, {
             method: 'GET',
             headers: {
-                'x-access-token': '982a6280ca57f2bcea7de6120d859121',
-                'Content-Type': 'application/json'
-                }
-            }).then((resp)=> {
-                if(resp.status !== 200){ throw({message: "Could not perform search. Please try again"})}
-                return resp.json()
-            })
-            .then((data)=>{
-                const forecastData = data.result.map( elm =>
-                    {
-                        const date = new Date(elm.uv_time)
-                        const name = date.getHours() >= 12 ? `${date.getHours() - 12}PM` : `${date.getHours()}AM`
-                        return {
-                            uv: elm.uv,
-                            name
-                        }
-                    })
-                this.setState({
-                  forecastData,
-                  isLoading: false
+                "Content-type":"application/json"
+            }
+        }).then(resp => {
+            if(resp.status !== 200){ throw({message: "Could not perform search. Please try again"})}
+            return resp.json()
+        }).then((data)=>{
+            const forecastData = data.result.map( elm =>
+                {
+                    const date = new Date(elm.uv_time)
+                    const name = date.getHours() >= 12 ? `${date.getHours() - 12}PM` : `${date.getHours()}AM`
+                    return {
+                        uv: elm.uv,
+                        name
+                    }
                 })
+            this.setState({
+              forecastData,
+              isLoading: false
             })
-            .catch((error)=>{
-                this.setState({ error: `Sorry, there was a problem.  ${error.message}`})
-            })
+        })
+        .catch((error)=>{
+            this.setState({ error: `Sorry, there was a problem.  ${error.message}`})
+        })
     }
-
 
   render() {
       if (this.state.isLoading){
