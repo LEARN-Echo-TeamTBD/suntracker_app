@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 
 import Chart from "../reactcomponents/Chart"
 import Feedback from "../reactcomponents/Feedback"
@@ -48,6 +49,7 @@ class Dashboard extends React.Component {
     }
     return (
         <React.Fragment>
+          <div className="to-center">
             {this.state.data.length > 0 &&
             <Feedback
                 data={this.state.data[this.state.data.length - 1]}
@@ -55,6 +57,10 @@ class Dashboard extends React.Component {
                 user_cancer_history={this.props.user_cancer_history}
             />}
             <Chart data={this.state.data}/>
+            <p className="lead">
+              <Link className="btn btn-primary btn-lg" to="/resources" role="button">Learn more about how to protect your skin</Link>
+            </p>
+          </div>
         </React.Fragment>
     );
   }

@@ -19,23 +19,19 @@ const Emoji = (props) => {
     "Your emoji is giving you the thumbs up, you're kinda cute for taking care of your skin, good job",
     'Praise the Sun, your ability to take care of your skin is noteworthy and you are a shining example to us all'
   ]
-
     return (
     <React.Fragment>
         <div>
           <div style={{fontSize:"200px"}}>
             {emojiMatrix[props.skintone -1][severity]}
-
           </div>
           <blockquote className="blockquote text-center">
             <p className="mb-0">{messageMatrix[severity]}</p>
-            <footer className="blockquote-footer">Your avatar</footer>
+            <footer className="blockquote-footer">{`Your ${severity >= 2 ? "happy" : "sad"} skin cells ${severity >= 2 ? "😎" : "🥵"}`}</footer>
           </blockquote>
         </div>
-
     </React.Fragment>
     )
-
 }
 
 export default Emoji
