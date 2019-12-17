@@ -20,10 +20,11 @@
  .homePage  {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
     image-url('background.jpg');
-    height: 150vh;
-    background-size: cover;
-    background-position: center;
+    background-position: center top;
     color: white;
+    max-height: 100vh;
+    min-height: 750px;
+    background-repeat: repeat;
  }
 
  .hero-text-box {
@@ -105,7 +106,7 @@
 }
 
 .front-info {
-    margin-top: 325px
+    margin-top: 250px
 }
 
 .about{
