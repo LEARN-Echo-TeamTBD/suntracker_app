@@ -2,11 +2,6 @@ import React from "react"
 import Sunlogo from './sunlogo2.png'
 import {Link} from 'react-router-dom'
 
-
-
-// import LinkButton from "../reactcomponents/LinkButton"
-
-
 class Home extends React.Component {
 
   render () {
@@ -32,4 +27,5 @@ class Home extends React.Component {
     );
   }
 }
+
 export default Home

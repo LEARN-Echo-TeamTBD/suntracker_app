@@ -7,8 +7,8 @@ $white:                 #ffffff !default;
 $black:                 #000000 !default;
 
 // Brand colors
-$primary:               #ff4f69 !default;
-$accent:                #f87d42 !default;
+$primary:               #f87d42 !default;
+$accent:                #ff4f69 !default;
 $info:		              #5695fe !default;
 $success:               #33cb81 !default;
 $warning:               #fc8c3a !default;
@@ -87,7 +87,7 @@ $gradient-color-2:      $accent !default;
 // Vertical gradient background
 @mixin gradient-background-vertical($gradient-from: $gradient-color-1, $gradient-to: $gradient-color-2) {
   background: $gradient-from !important;
-  background: linear-gradient(to bottom, rgba(248,125,66,1) 0%, rgba(255,79,105,1) 100%) !important;
+  background: linear-gradient(to bottom, $gradient-from 0%, $gradient-to 100%) !important;
 }
 
 // Placeholder text
