@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 
 import Chart from "../reactcomponents/Chart"
 import Feedback from "../reactcomponents/Feedback"
@@ -49,6 +50,7 @@ class Dashboard extends React.Component {
     }
     return (
         <React.Fragment>
+          <div className="to-center">
             {this.state.data.length > 0 &&
             <>
                 <Feedback

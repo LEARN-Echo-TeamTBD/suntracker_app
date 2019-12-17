@@ -13,7 +13,6 @@ const CustomizedLabelB = () => {
             textAnchor="start"
             width={200}
             transform="rotate(-90)"
-            //scaleToFit={true}
         >
             UV Index
         </Text>
