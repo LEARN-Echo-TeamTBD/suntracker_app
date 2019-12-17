@@ -1,5 +1,5 @@
 class UvApiController < ApplicationController
-    @@xaccesstoken = 'aba42a00c60fabf67c1fc95632c69dc4'
+    @@xaccesstoken = Rails.application.credentials.config[:uvapikey]
 
     def api
         url = "https://api.openuv.io/api/v1/#{location_params['route']}?lat=#{location_params['latitude']}&lng=#{location_params['longitude']}"
