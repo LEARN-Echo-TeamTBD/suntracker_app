@@ -1,3 +1,15 @@
 .recharts-wrapper {
   margin: auto 20%;
 }
+
+.feedback > p {
+  margin-bottom: 0;
+}
+
+.feedback > p.text-muted {
+  margin-top: 0;
+}
+
+.feedback > p.text-success {
+  margin-top: 0;
+}
