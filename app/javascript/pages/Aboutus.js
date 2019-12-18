@@ -32,7 +32,7 @@ class Aboutus extends React.Component {
         image:StephanPhoto,
         githubLink:'https://github.com/stephenbilham',
         linkedInLink:'https://www.linkedin.com/in/srbilham/',
-        email:"jiayuhe@alumni.stanford.edu",
+        email:"stephenbilham@yahoo.com",
         about:"hello"
     },
     {
