@@ -104,7 +104,7 @@ class UserForm extends React.Component {
 
     createTime (str) {
         const date = new Date(str)
-        return `${date.getHours()}:${date.getUTCMinutes()}`
+        return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     }
 
     render () {
