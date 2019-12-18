@@ -1,12 +1,10 @@
 import React from "react"
-import { Link } from 'react-router-dom';
 
 import Chart from "../reactcomponents/Chart"
 import Feedback from "../reactcomponents/Feedback"
 
 class Dashboard extends React.Component {
   constructor(props){
-      console.log()
        super(props)
        this.state = {
          data: [],
@@ -41,26 +39,23 @@ class Dashboard extends React.Component {
   render () {
     if (this.state.isLoading) {
         return (
-            <React.Fragment>
+            <div className="to-center">
                 <div>
                     <h1>Loading...</h1>
                 </div>
-            </React.Fragment>
+            </div>
         )
     }
     return (
-        <React.Fragment>
-          <div className="to-center">
+        <div className="to-center">
             {this.state.data.length > 0 &&
-            <>
-                <Feedback
-                    data={this.state.data[this.state.data.length - 1]}
-                    user_skintone={this.props.user_skintone}
-                    user_cancer_history={this.props.user_cancer_history}
-                />
-                <Chart data={this.state.data}/>
-            </>}
-        </React.Fragment>
+            <Feedback
+                data={this.state.data[this.state.data.length - 1]}
+                user_skintone={this.props.user_skintone}
+                user_cancer_history={this.props.user_cancer_history}
+            />}
+            {this.state.data.length > 0 && <Chart data={this.state.data}/>}
+        </div>
     );
   }
 }
