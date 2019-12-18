@@ -1,0 +1,32 @@
+#app-footer {
+	padding: 5px 0;
+	text-align: center;
+	background: linear-gradient(to right, #f87d42 0%, #ff4f69 100%);
+}
+
+footer {
+
+	.logo {
+		margin-bottom: 0px;
+
+		img {
+			width: 24px;
+		}
+	}
+
+	.navlinks {
+		ul {
+			list-style: none;
+
+			li {
+				display: inline-block;
+				margin: 0 10px;
+			}
+		}
+	}
+
+	.f-d{
+		margin: 0px;
+		color: #fff;
+	}
+}

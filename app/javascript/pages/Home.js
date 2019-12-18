@@ -1,5 +1,5 @@
 import React from "react"
-import Sunlogo from './sunlogo2.png'
+import Sunlogo from '../../assets/images/sunlogo2.png'
 import { Link } from 'react-router-dom'
 
 class Home extends React.Component {

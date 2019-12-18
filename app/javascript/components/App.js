@@ -13,6 +13,7 @@ import Aboutus from '../pages/Aboutus'
 
 //React Components
 import Header from '../reactcomponents/Header'
+import Footer from '../reactcomponents/Footer'
 
 class App extends React.Component {
   render () {
@@ -44,6 +45,7 @@ class App extends React.Component {
                     </>}
 
                 </Switch>
+                <Footer />
             </Router>
         </React.Fragment>
     );
