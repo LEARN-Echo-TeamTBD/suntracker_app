@@ -24,7 +24,8 @@
     color: white;
     max-height: 100vh;
     min-height: 750px;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
  }
 
  .hero-text-box {
@@ -252,4 +253,3 @@
     text-align: center;
     padding-right: 5px;
 }
-
