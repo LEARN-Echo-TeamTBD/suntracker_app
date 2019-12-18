@@ -3,17 +3,9 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, Text
 } from 'recharts'
 
-const CustomizedLabelB = () => {
+const CustomizedLabelB = _ => {
     return (
-        <Text
-            x={0}
-            y={0}
-            dx={-250}
-            dy={30}
-            textAnchor="start"
-            width={200}
-            transform="rotate(-90)"
-        >
+        <Text x={0} y={0} dx={-250} dy={30} textAnchor="start" width={200} transform="rotate(-90)">
             UV Index
         </Text>
     );
@@ -45,7 +37,7 @@ class Chart extends React.Component {
     }
 
     getUVapi = ({ latitude, longitude }) => {
-        fetch(`/uvapi?uv_api[latitude]=${latitude}&uv_api[longitude]=${longitude}&uv_api[route]=forecast`, {
+        fetch(`/uvforecast?uv_api[latitude]=${latitude}&uv_api[longitude]=${longitude}`, {
             method: 'GET',
             headers: {
                 "Content-type":"application/json"
@@ -57,10 +49,13 @@ class Chart extends React.Component {
             const forecastData = data.result.map( elm =>
                 {
                     const date = new Date(elm.uv_time)
-                    const name = date.getHours() >= 12 ? `${date.getHours() - 12}PM` : `${date.getHours()}AM`
+                    let hours = date.getHours()
+                    const ampm = hours >= 12 ? 'PM' : 'AM'
+                    hours = hours % 12
+                    hours = hours ? hours : 12
                     return {
                         uv: elm.uv,
-                        name
+                        name: hours+ampm
                     }
                 })
             this.setState({
