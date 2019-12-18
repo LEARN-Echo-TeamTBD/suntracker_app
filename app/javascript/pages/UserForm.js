@@ -131,7 +131,7 @@ class UserForm extends React.Component {
             <React.Fragment>
                 { this.state.createSuccess ? <Redirect to="/dashboard" /> : null }
 
-                <div className="dataDispay">
+                <div className="dataDisplay">
                     <p> Your location : Latitude: {this.state.form.latitude.toFixed(4)}, Longitude: {this.state.form.longitude.toFixed(4)} </p>
 
                     <p> For your location the {getSunHours()} </p>
