@@ -13,12 +13,12 @@ const Feedback = (props) => {
           The current UV level is <span className="badge badge-secondary">{uv.toFixed(2)}</span>, and the maximum UV level for today is <span className="badge badge-secondary">{uv_max.toFixed(2)}</span>.
         </p>
         <p className="lead">
-          Based on your skin tone, your <span className="badge badge-secondary">{hours_in_sun}</span> {hours_in_sun <= 1 ? 'hour' : 'hours'} of  sun exposure {hours_in_sun > (safe_exposure_time/60) ? 'exceeded' : 'is less than'} the healthy amount of <span className="badge badge-secondary">{(safe_exposure_time/60).toFixed(1)}</span> hours.
+          Based on your skin tone, your <span className="badge badge-secondary">{hours_in_sun/2}</span> {hours_in_sun/2 <= 1 ? 'hour' : 'hours'} of  sun exposure {hours_in_sun/2 > (safe_exposure_time/60) ? 'exceeded' : 'is less than'} the healthy amount of <span className="badge badge-secondary">{(safe_exposure_time/60).toFixed(1)}</span> hours.
         </p>
         <p className={sun_block_application ? "text-success" : "text-danger"}> {message}</p>
         <Emoji
         skintone={props.user_skintone}
-        current_sun_exposure={hours_in_sun}
+        current_sun_exposure={hours_in_sun/2}
         max_sun_exposure={safe_exposure_time}
         />
     </React.Fragment>
