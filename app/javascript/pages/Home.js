@@ -1,12 +1,11 @@
 import React from "react"
 import Sunlogo from './sunlogo2.png'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
 
   render () {
-    const{sign_in_route} = this.props
-    console.log(sign_in_route)
+    const { sign_in_route } = this.props
     return (
           <React.Fragment>
             <div className="homePage">
