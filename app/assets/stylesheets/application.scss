@@ -67,7 +67,15 @@
      text-align: center;
      text-decoration-line: underline;
      font-size: 7rem;
- }
+     border: 1px solid;
+    padding-bottom: 80px;
+    padding-top: 20px;
+    background: url(books);
+    background-size: cover;
+    color: white;
+    font-weight: 500;
+    border-radius: 20px;
+}
 
  .cardOne{
      padding-left: 150px;
@@ -94,7 +102,8 @@
 .allCards{
     border:5px solid #E95420;
     border-radius: 25px;
-    border-width: 15px;
+    background-color: lightgrey;
+    padding-top:20px
 
 }
 
@@ -218,3 +227,29 @@
 .home-buttons {
     text-align: center;
 }
+// -------Logger------->
+.dataDisplay{
+    text-align: center;
+    border: 0.5px solid;
+    background-position: center;
+    background-size: cover;
+    background-image: url('sunshine.jpg');
+    color: oldlace;
+    padding-bottom: 35px;
+    padding-top: 20px;
+    font-weight: 800;
+    font-variant: small-caps;
+    font-size: 20px;
+}
+.form-border-center{
+    border: 5px solid rgba(248,125,66,1);
+    margin: auto;
+    margin-top: 35px;
+    border-style: outset;
+    border-radius: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    padding-right: 5px;
+}
+

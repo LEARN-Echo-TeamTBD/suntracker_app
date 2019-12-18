@@ -139,7 +139,7 @@ class UserForm extends React.Component {
         return (
             <React.Fragment>
                 { this.state.createSuccess ? <Redirect to="/dashboard" /> : null }
-                <div className="dataDispay">
+                <div className="dataDisplay">
                     <p> Your location : Latitude: {coordinates.latitude.toFixed(4)}, Longitude: {coordinates.longitude.toFixed(4)} </p>
                     <p> For your location the {getSunHours()} </p>
                     <p> The Strongest UV index of { uvData.result.uv_max } will be at { this.createTime(uvData.result.uv_max_time) } </p>
