@@ -130,8 +130,10 @@ class UserForm extends React.Component {
         return (
             <React.Fragment>
                 { this.state.createSuccess ? <Redirect to="/dashboard" /> : null }
+
                 <div className="dataDispay">
                     <p> Your location : Latitude: {this.state.form.latitude.toFixed(4)}, Longitude: {this.state.form.longitude.toFixed(4)} </p>
+
                     <p> For your location the {getSunHours()} </p>
                     <p> The Strongest UV index of { uvData.result.uv_max } will be at { this.createTime(uvData.result.uv_max_time) } </p>
                     <p> With the current UV index of { uvData.result.uv }, { (safe_exposure_time/60) <= 24 ? `you can spend ${(safe_exposure_time/60).toFixed(2)} hours in current condition` : "you can enjoy being outside freely!"}</p>

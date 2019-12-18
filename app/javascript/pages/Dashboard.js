@@ -45,16 +45,21 @@ class Dashboard extends React.Component {
         )
     }
     return (
-        <div className="to-center">
+
+          <div className="to-center">
             {this.state.data.length > 0 &&
-            <Feedback
-                data={this.state.data[this.state.data.length - 1]}
-                user_skintone={this.props.user_skintone}
-                user_cancer_history={this.props.user_cancer_history}
-            />}
-            {this.state.data.length > 0 && <Chart data={this.state.data}/>}
+            <>
+                <Feedback
+                    data={this.state.data[this.state.data.length - 1]}
+                    user_skintone={this.props.user_skintone}
+                    user_cancer_history={this.props.user_cancer_history}
+                />
+                <Chart data={this.state.data}/>
+             </>}
         </div>
-    )
+
+    );
+
   }
 }
 
