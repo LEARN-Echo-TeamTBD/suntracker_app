@@ -18,7 +18,6 @@ class Dashboard extends React.Component {
      fetch(`/users/${this.props.user_id}/uventries`)
          .then((resp) => {
             if (resp.status !== 200) {
-                //throw new Error()
             } else {
                 return resp.json()
             }
@@ -35,7 +34,6 @@ class Dashboard extends React.Component {
                isLoading: false})
          })
    }
-
   render () {
     if (this.state.isLoading) {
         return (
@@ -56,7 +54,7 @@ class Dashboard extends React.Component {
             />}
             {this.state.data.length > 0 && <Chart data={this.state.data}/>}
         </div>
-    );
+    )
   }
 }
 
