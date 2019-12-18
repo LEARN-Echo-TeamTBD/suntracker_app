@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'uvapi', to: 'uv_api#api'
-  #get 'uvindex', to: 'uv_api#indexdata'
+  get 'uvforecast', to: 'uv_api#forecast'
+  get 'uvindex', to: 'uv_api#index'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

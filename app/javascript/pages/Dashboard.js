@@ -40,9 +40,7 @@ class Dashboard extends React.Component {
     if (this.state.isLoading) {
         return (
             <>
-                <div>
-                    <h1>Loading...</h1>
-                </div>
+                <h1>Loading...</h1>
             </>
         )
     }

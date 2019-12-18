@@ -49,7 +49,7 @@ class UserForm extends React.Component {
     }
 
     getUVapi = ({ latitude, longitude }) => {
-        fetch(`/uvapi?uv_api[latitude]=${latitude}&uv_api[longitude]=${longitude}&uv_api[route]=uv`, {
+        fetch(`/uvindex?uv_api[latitude]=${latitude}&uv_api[longitude]=${longitude}`, {
             method: 'GET',
             headers: {
                 "Content-type":"application/json"
