@@ -7,7 +7,9 @@ class Resources extends React.Component {
     return (
         <React.Fragment>
           <div className='allPage'>
-          <h1 className="resources">Resources</h1>
+            <h1 className="resources">
+                Resources
+            </h1>
            <div className="allCards">
             <div className="cardOne">
               <div className="card border-primary mb-3">

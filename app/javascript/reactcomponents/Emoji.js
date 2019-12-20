@@ -25,8 +25,8 @@ const Emoji = (props) => {
           <div style={{fontSize:"200px"}}>
             {emojiMatrix[props.skintone -1][severity]}
           </div>
-          <blockquote className="blockquote text-center">
-            <p className="mb-0">{messageMatrix[severity]}</p>
+          <blockquote className="text-center">
+            <h3>{messageMatrix[severity]}</h3>
             <footer className="blockquote-footer">{`Your ${severity >= 2 ? "happy" : "sad"} skin cells ${severity >= 2 ? "😎" : "🥵"}`}</footer>
           </blockquote>
         </div>

@@ -54,7 +54,11 @@ class Dashboard extends React.Component {
                     user_skintone={this.props.user_skintone}
                     user_cancer_history={this.props.user_cancer_history}
                 />
-                <Chart data={this.state.data}/>
+
+                <div className="chart-container">
+                    <h2>UV forecast for the day</h2>
+                    <Chart data={this.state.data}/>
+                </div>
              </>}
         </div>
 
