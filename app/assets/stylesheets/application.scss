@@ -20,7 +20,7 @@
 @import url('https://fonts.googleapis.com/css?family=Solway:500&display=swap" rel="stylesheet');
 
 #container {
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 112px);
 }
 .homePage {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
@@ -28,6 +28,8 @@
     background-position: center top;
     color: white;
     max-height: 100vh;
+    height: 100%;
+    min-height: calc(100vh - 112px);
     background-repeat: no-repeat;
     background-size: cover;
 }
