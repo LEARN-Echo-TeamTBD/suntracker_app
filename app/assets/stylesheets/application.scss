@@ -19,13 +19,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Solway:500&display=swap" rel="stylesheet');
 
+#container {
+    min-height: calc(100vh - 56px);
+}
 .homePage {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
         image-url('background.jpg');
     background-position: center top;
     color: white;
     max-height: 100vh;
-    min-height: calc(100vh - 56px);
     background-repeat: no-repeat;
     background-size: cover;
 }
