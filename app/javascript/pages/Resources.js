@@ -18,7 +18,7 @@ class Resources extends React.Component {
                                             href='https://www.skincancer.org/early-detection/self-exams/'
                                             target='_blank'
                                         >
-                                            Self Exams:
+                                            Self Exams
                                         </a>
                                     </h4>
                                     <p className='card-text'>
@@ -41,7 +41,7 @@ class Resources extends React.Component {
                                             href='https://www.medicalnewstoday.com/articles/320639.php#how-to-protect-each-skin-type'
                                             target='_blank'
                                         >
-                                            Fitzpatrick Scale:
+                                            Fitzpatrick Scale
                                         </a>
                                     </h4>
                                     <p className='card-text'>
