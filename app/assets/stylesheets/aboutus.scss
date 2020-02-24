@@ -355,10 +355,9 @@ $gradient-color-2: $accent !default;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    padding: 3rem;
+    padding: 1.5rem;
     margin-right: auto;
     margin-left: auto;
-    // color: #d8d8d8;
     color: white;
     text-shadow: 1px 1px 1px #000;
 }
@@ -366,7 +365,6 @@ $gradient-color-2: $accent !default;
 #cuztomiz-blockquote-footer {
     display: block;
     font-size: 60%;
-    // color: #d8d8d8;
     color: white;
     margin-top: 0.5em;
 }
